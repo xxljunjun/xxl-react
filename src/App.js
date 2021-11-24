@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+// import logo from './static/logo.svg';
 import './App.css';
 import Home from './pages/home/home.js'
 import TabBar from './components/tabBar/tabBar';

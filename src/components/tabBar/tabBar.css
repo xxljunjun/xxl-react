@@ -1,8 +1,17 @@
 .tabBar{
-    height: 80px;
+    height: 60px;
     width: 100%;
-    background: red;
+    background: #ccc;
     position: fixed;
     bottom: 0;
     left: 0;
+}
+.item_box{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.active{
+    color: blue;
 }

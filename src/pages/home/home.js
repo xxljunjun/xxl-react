@@ -5,19 +5,24 @@ class Home extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            myName:'我是home组件'
+            myName:'我是home组件',
+            status:false
         }
     }
+    changeColor(){
+        this.setState({
+            myName:'我是更新后的home组件',
+            status:true,
+        })
+    }
     render(){
-        let {myName} = this.state
+        let {myName,status} = this.state
         return(
             <div className='home'>
-                {myName}
-                <Son>
-                    <div>
-                        11111111111
-                    </div>
-                </Son>
+                <div className={status?'title_1':'title_2'} onClick={()=>this.changeColor()}>
+                    {myName}
+                </div>
+                <Son myName={myName} onChangeColor={()=>this.changeColor()}/>
             </div>
         )
     }
