@@ -14,7 +14,7 @@ class Son extends React.Component{
     }
     render(){
         let {sonName} = this.state
-        let {myName} = this.props
+        // let {myName} = this.props
         // console.log("props",this.props.children) 类似于vue中的插槽的作用
         return(
             <div className='son' onClick={()=>this.change()}>

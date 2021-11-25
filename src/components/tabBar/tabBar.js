@@ -19,7 +19,7 @@ class TabBar extends React.Component {
         let { tabbarList } = this.state
         tabbarList.forEach(val => {
             val.istrue = false
-            if (item.id == val.id) {
+            if (item.id === val.id) {
                 val.istrue = true
             }
         })
