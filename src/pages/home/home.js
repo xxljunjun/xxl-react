@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.less";
 import Son from "./components/son.js";
+import { Button } from "antd";
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,7 @@ class Home extends React.Component {
     let { myName, status } = this.state;
     return (
       <div className="home">
+        <Button type="primary">Primary Button</Button>
         <div
           className={status ? "title_1" : "title_2"}
           onClick={() => this.changeColor()}

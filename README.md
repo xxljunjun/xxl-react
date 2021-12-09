@@ -56,4 +56,11 @@ const lessModuleRegex = /\.module\.less$/;
 
 ```
 
-### 三、集成 ant-designUI 库
+### 四、集成 ant-designUI 库
+
+```js
+ npm install antd -S
+ //在入口文件引入less样式
+ import "antd/dist/antd.css";
+
+```
