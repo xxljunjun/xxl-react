@@ -1,14 +1,19 @@
-import "./App.css";
-import Home from "./pages/home/home.js";
-import TabBar from "./components/tabBar/tabBar";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import loadable from "@loadable/component";
+const Home = loadable(() => import("./pages/home/home.js"))
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Home />
-      <TabBar />
-    </div>
+    <Router>
+        <Routes>
+          <Route exact path="/"  element={<Home />}></Route>
+        </Routes>
+    </Router>
   );
 }
 
-export default App;

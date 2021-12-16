@@ -48,23 +48,16 @@ class TabBar extends React.Component {
     );
   }
   componentDidMount() {
-    //dom加载完成
-    //相当于vue的mounted
-    console.log("------------,componentDidMount");
+    
   }
-  // sholdComponentUpdate(){
-  //     console.log("------------,sholdComponentUpdate")
-  //     console.log(this.state)
-  //     return true
-
-  // }
-  // componentDidUpdate(){
-  //     console.log("------------,componentDidUpdate")
-  //     //调接口，更新完成
-  // }
+  sholdComponentUpdate(){
+      return true
+  }
+  componentDidUpdate(){
+      
+  }
   componentWillUnmount() {
-    console.log("------------,componentWillUnmount");
-    //相当于vue的beforeDestroy
+    
   }
 }
 export default TabBar;

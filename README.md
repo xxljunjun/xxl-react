@@ -64,3 +64,49 @@ const lessModuleRegex = /\.module\.less$/;
  import "antd/dist/antd.css";
 
 ```
+### 五、配置路由
+```js
+npm install --save react-router-dom
+//或
+yarn add react-router-dom
+
+npm install @loadable/component -S
+```
+```js
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import loadable from "@loadable/component";
+const Home = loadable(() => import("./pages/home/home.js"))
+
+export default function App() {
+  return (
+    <Router>
+        <Routes>
+          <Route exact path="/"  element={<Home />}></Route>
+        </Routes>
+    </Router>
+  );
+}
+
+```
+### 六、配置路由别名
+```js
+alias: {
+        // Support React Native Web
+        // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+        "react-native": "react-native-web",
+        // Allows for better profiling with ReactDevTools
+        ...(isEnvProductionProfile && {
+          "react-dom$": "react-dom/profiling",
+          "scheduler/tracing": "scheduler/tracing-profiling",
+        }),
+        ...(modules.webpackAliases || {}),
+        // 文件路径别名
+        '@': path.resolve(__dirname, '../src'),
+      },
+```
+
