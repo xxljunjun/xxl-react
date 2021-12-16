@@ -4,6 +4,7 @@ import "./home.less";
 // import { Button } from "antd";
 import TopSearch from '@/components/search/search.js'
 import MySwiper from '@/components/swiper/swiper.js'
+import Commodity from '@/components/commodity/commodity.js'
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class Home extends React.Component {
       <div className="home">
         <TopSearch/>
         <MySwiper/>
+        <Commodity/>
       </div>
     );
   }
