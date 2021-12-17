@@ -1,7 +1,7 @@
 import React from "react";
 import "./search.less";
-// import logo from '@/static/logo.svg'
-import reactImg from '@/static/react.png'
+import {dajiang,search,shopimg,gang} from '@/utils/img.js'
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -11,14 +11,14 @@ class Search extends React.Component {
     return (
       <div className="topsearch">
         <div className="left">
-          <img src={reactImg} alt="" className="left_img"/>
+          <img src={gang} alt="" className="left_img"/>
         </div>
         <div className="middle">
-          <img src={reactImg} alt="" className="middle_img"/>
+          <img src={dajiang} alt="" className="middle_img"/>
         </div>
         <div className="right">
-          <img src={reactImg}alt="" className="right_img_1"/>
-          <img src={reactImg} alt="" className="right_img_2"/>
+          <img src={search}alt="" className="right_img_1"/>
+          <img src={shopimg} alt="" className="right_img_2"/>
         </div>
       </div>
     );

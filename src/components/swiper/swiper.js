@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel } from "antd";
 import "./swiper.less";
+import {swiper_1,swiper_2,swiper_3} from '@/utils/img.js'
 
 const contentStyle = {
   height: "320px",
@@ -16,18 +17,21 @@ class Swiper extends React.Component {
   render() {
     return (
       <div className="swiper">
-        <Carousel afterChange={this.onChange}>
+        <Carousel afterChange={this.onChange} autoplay>
           <div>
-            <h3 style={contentStyle}>1</h3>
+            <h3 style={contentStyle}>
+            <img src={swiper_1} alt="" className="swiper_item"/>
+            </h3>
           </div>
           <div>
-            <h3 style={contentStyle}>2</h3>
+            <h3 style={contentStyle}>
+            <img src={swiper_2} alt=""  className="swiper_item"/>
+            </h3>
           </div>
           <div>
-            <h3 style={contentStyle}>3</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>4</h3>
+            <h3 style={contentStyle}>
+            <img src={swiper_3} alt=""  className="swiper_item"/>
+            </h3>
           </div>
         </Carousel>
       </div>

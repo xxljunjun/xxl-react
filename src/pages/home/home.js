@@ -5,34 +5,47 @@ import "./home.less";
 import TopSearch from "@/components/search/search.js";
 import MySwiper from "@/components/swiper/swiper.js";
 import Commodity from "@/components/commodity/commodity.js";
+import { add, earphone, up_arrow } from "@/utils/img.js";
+import { BackTop } from "antd";
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttomArr:[
-        {id:1,some:'热门产品分类'},
-        {id:2,some:'帮助与支持'},
-        {id:3,some:'商城项目'},
-        {id:4,some:'探索精彩大疆'}
-      ]
+      buttomArr: [
+        { id: 1, some: "热门产品分类" },
+        { id: 2, some: "帮助与支持" },
+        { id: 3, some: "商城项目" },
+        { id: 4, some: "探索精彩大疆" },
+      ],
     };
   }
   render() {
-    let {buttomArr} = this.state
+    let { buttomArr } = this.state;
     return (
       <div className="home">
+        <div className="fixed">
+          <img src={earphone} alt="" className="earphone" />
+        </div>
+        <BackTop>
+          <div className="toTop">
+            <img src={up_arrow} alt="" className="up_arrow"/>
+          </div>
+        </BackTop>
+
         <TopSearch />
         <MySwiper />
         <Commodity />
         <div className="buttom_box">
           <ul className="ulbox">
-            {
-              buttomArr.map(val=>{
-                return (
-                  <li className="item">{val.some}</li>
-                )
-              })
-            }
+            {buttomArr.map((val, index) => {
+              return (
+                <li className="item" key={index}>
+                  <span>{val.some}</span>
+                  <img src={add} alt="" className="add" />
+                </li>
+              );
+            })}
           </ul>
           <div className="somthing">
             <span>DJI.COM</span>
