@@ -6,12 +6,13 @@ import TopSearch from "@/components/search/search.js";
 import MySwiper from "@/components/swiper/swiper.js";
 import Commodity from "@/components/commodity/commodity.js";
 import { add, earphone, up_arrow } from "@/utils/img.js";
-import { BackTop } from "antd";
+import { BackTop, Drawer } from "antd";
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      Drawervisible: false,
       buttomArr: [
         { id: 1, some: "热门产品分类" },
         { id: 2, some: "帮助与支持" },
@@ -20,16 +21,41 @@ class Home extends React.Component {
       ],
     };
   }
+  onCloseDrawer = () => {
+    this.setState({
+      Drawervisible: false,
+    });
+  };
+  showDrawer = () => {
+    this.setState({
+      Drawervisible: true,
+    });
+  };
   render() {
-    let { buttomArr } = this.state;
+    let { buttomArr, Drawervisible } = this.state;
     return (
       <div className="home">
+        <Drawer
+          title="客服服务"
+          placement={"bottom"}
+          closable={false}
+          onClose={this.onCloseDrawer}
+          visible={Drawervisible}
+          key={"bottom"}
+        >
+          <div>客服服务</div>
+        </Drawer>
         <div className="fixed">
-          <img src={earphone} alt="" className="earphone" />
+          <img
+            src={earphone}
+            alt=""
+            className="earphone"
+            onClick={this.showDrawer}
+          />
         </div>
         <BackTop>
           <div className="toTop">
-            <img src={up_arrow} alt="" className="up_arrow"/>
+            <img src={up_arrow} alt="" className="up_arrow" />
           </div>
         </BackTop>
 

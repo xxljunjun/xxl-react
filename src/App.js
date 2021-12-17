@@ -1,19 +1,15 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-import loadable from "@loadable/component";
-const Home = loadable(() => import("./pages/home/home.js"))
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import routerArr from "@/pages/index.js";
 export default function App() {
+  console.log(routerArr);
   return (
     <Router>
-        <Routes>
-          <Route exact path="/"  element={<Home />}></Route>
-        </Routes>
+      <Routes>
+        {routerArr.map((val,index) => {
+          return <Route exact path={val.path} element={val.component} key={index}></Route>;
+        })}
+      </Routes>
     </Router>
   );
 }
-

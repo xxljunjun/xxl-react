@@ -93,6 +93,11 @@ export default function App() {
 }
 
 ```
+```js
+//路由跳转
+ import {Link} from 'react-router-dom'
+ <Link to='/home'>跳转路由</Link>
+```
 ### 六、配置路由别名
 ```js
 alias: {

@@ -3,11 +3,18 @@ import loadable from "@loadable/component";
 import React from "react";
 
 //引入组件（页面）
-const Home = loadable(() => import("@/pages/home/home.js"));
+const Home = loadable(() => import("@/pages/home/home.js"))
+const SearchShop = loadable(() => import("@/pages/searchShop/searchShop.js"))
+const Car = loadable(() => import("@/pages/car/car.js"))
+const Shopdetail = loadable(() => import("@/pages/shopdetail/shopdetail.js"))
+const Moreshop = loadable(() => import("@/pages/moreshop/moreshop.js"))
 
 const routes = [
-    {path:'/',component:<Home/>}
+    {path:'/',component:<Home/>},
+    {path:'/search',component:<SearchShop/>},
+    {path:'/car',component:<Car/>},
+    {path:'/shopdetail',component:<Shopdetail/>},
+    {path:'/moreshop',component:<Moreshop/>},
 ]
  
-
 export default routes;
