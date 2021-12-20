@@ -5,7 +5,8 @@ import "./home.less";
 import TopSearch from "@/components/search/search.js";
 import MySwiper from "@/components/swiper/swiper.js";
 import Commodity from "@/components/commodity/commodity.js";
-import { add, earphone, up_arrow } from "@/utils/img.js";
+import Mybottom from '@/components/mybottom/mybottom.js'
+import {  earphone, up_arrow } from "@/utils/img.js";
 import { BackTop, Drawer } from "antd";
 
 class Home extends React.Component {
@@ -32,7 +33,7 @@ class Home extends React.Component {
     });
   };
   render() {
-    let { buttomArr, Drawervisible } = this.state;
+    let {Drawervisible } = this.state;
     return (
       <div className="home">
         <Drawer
@@ -58,29 +59,10 @@ class Home extends React.Component {
             <img src={up_arrow} alt="" className="up_arrow" />
           </div>
         </BackTop>
-
         <TopSearch />
         <MySwiper />
         <Commodity />
-        <div className="buttom_box">
-          <ul className="ulbox">
-            {buttomArr.map((val, index) => {
-              return (
-                <li className="item" key={index}>
-                  <span>{val.some}</span>
-                  <img src={add} alt="" className="add" />
-                </li>
-              );
-            })}
-          </ul>
-          <div className="somthing">
-            <span>DJI.COM</span>
-            <span>隐私政策</span>
-            <span>使用条款</span>
-          </div>
-          <div className="txt">中国大陆( 简体中文 / ¥ CNY )</div>
-          <div className="polic">版权所有© 2021 大疆创新保留所有权利</div>
-        </div>
+        <Mybottom/>
       </div>
     );
   }
