@@ -1,11 +1,18 @@
 import React from "react";
 import TopSearch from "@/components/search/search.js";
 import "./car.less";
-class Car extends React.Component {
-  render() {
-    return <div className="car">
-        <TopSearch />
-    </div>;
+import { useNavigate} from "react-router-dom";
+
+const Car = props=>{
+  let navigate = useNavigate();
+  const gotopage = ()=>{
+    navigate('/')
   }
+  return(
+    <>
+      <TopSearch/>
+      <div onClick={gotopage}></div>
+    </>
+  )
 }
 export default Car;

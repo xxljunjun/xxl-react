@@ -66,7 +66,7 @@ const lessModuleRegex = /\.module\.less$/;
 ```
 ### 五、配置路由
 ```js
-npm install --save react-router-dom
+npm install --save react-router-dom  //最新版本6变化太多了！！！
 //或
 yarn add react-router-dom
 
@@ -94,9 +94,12 @@ export default function App() {
 
 ```
 ```js
+//编程式路由跳转
+import {Link} from 'react-router-dom'
+<Link to='/home'>跳转路由</Link>
 //路由跳转
- import {Link} from 'react-router-dom'
- <Link to='/home'>跳转路由</Link>
+let navigate = useNavigate()
+navigate("/")
 ```
 ### 六、配置路由别名
 ```js
