@@ -1,8 +1,15 @@
-import React from "react";
+
+import React,{useState,useEffect}from "react";
 import "./shopdetail.less";
-class Shopdetail extends React.Component {
-  render() {
-    return <div className="shopdetail">shopdetail</div>;
-  }
+import { Link,useNavigate} from "react-router-dom";
+const Shopdetail = props=>{
+  let navigate = useNavigate()
+  useEffect(()=>{
+
+    return ()=>{
+
+    }
+  },[])
+  return <></>
 }
-export default Shopdetail;
+export default Shopdetail
