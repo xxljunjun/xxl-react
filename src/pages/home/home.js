@@ -33,6 +33,7 @@ class Home extends React.Component {
     });
   };
   render() {
+    console.log("home组件的props",this.props)
     let {Drawervisible } = this.state;
     return (
       <div className="home">

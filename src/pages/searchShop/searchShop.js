@@ -1,10 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import "./searchShop.less";
 import { Input } from "antd";
 import { useNavigate } from "react-router-dom";
 const SearchShop = (props) => {
   let navigate = useNavigate();
-  let keyword = "";
+  let [keyword,setKeyword] = useState("");
   let searchArr = [
     { id: 1, xxl: "DJI Air 2S" },
     { id: 2, xxl: "DJI OM 5" },
@@ -19,7 +19,7 @@ const SearchShop = (props) => {
     navigate("/");
   };
   const searchInput = (e) => {
-    this.setState({ keyword: e.target.value });
+    setKeyword(e.target.value)
   };
   return (
     <>

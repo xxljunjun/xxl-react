@@ -95,7 +95,7 @@ export default function App() {
 ```
 ```js
 //编程式路由跳转
-import {Link} from 'react-router-dom'
+import { Link,useNavigate} from "react-router-dom";
 <Link to='/home'>跳转路由</Link>
 //路由跳转
 let navigate = useNavigate()
@@ -117,4 +117,41 @@ alias: {
         '@': path.resolve(__dirname, '../src'),
       },
 ```
+### 七、类组件基本模板和函数式组件基本模板
+```js
+//函数式组件
+import React,{useState,useEffect}from "react";
+import { Link,useNavigate} from "react-router-dom";
+const demo = props=>{
+  let navigate = useNavigate()
+  useEffect(()=>{
 
+    return ()=>{
+
+    }
+  },[])
+  return <></>
+}
+export default demo
+
+//类组件
+import React from 'react'
+class Demo extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={}
+  }
+  componentDidMount() {
+    
+  }
+  sholdComponentUpdate(){
+      return true
+  }
+  componentDidUpdate(){
+      
+  }
+  componentWillUnmount() {
+    
+  }
+}
+```
