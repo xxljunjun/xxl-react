@@ -1,0 +1,23 @@
+.myloading{
+    background: #fff;
+    height: 100vh;
+    width: 100vw;
+    .loading_img{
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        animation: trun 2s linear infinite;
+    }
+}
+@keyframes trun {
+    from{
+        transform:rotate(0deg);
+    }to{
+        transform:rotate(360deg);
+    }
+}

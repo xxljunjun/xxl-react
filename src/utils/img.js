@@ -22,6 +22,8 @@ import reduce from '@/static/reduce.png'
 import earphone from '@/static/earphone.png'
 import up_arrow from '@/static/up_arrow.png'
 
+import loading from '@/static/loading.png'
+
 export {
     // reactImg,
     dajiang,
@@ -38,5 +40,6 @@ export {
     add,
     reduce,
     earphone,
-    up_arrow
+    up_arrow,
+    loading
 }

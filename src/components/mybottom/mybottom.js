@@ -41,7 +41,7 @@ const Mybottom = (props) => {
   return (
     <>
       <div className="my_bottom">
-        <Collapse bordered={false} defaultActiveKey={["1"]} accordion>
+        <Collapse bordered={false} accordion>
           {buttomArr.map((val) => {
             return (
               <Panel header={val.some} key={val.id}>
