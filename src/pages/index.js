@@ -9,6 +9,7 @@ const Car = loadable(() => import("@/pages/car/car.js"))
 const Shopdetail = loadable(() => import("@/pages/shopdetail/shopdetail.js"))
 const Moreshop = loadable(() => import("@/pages/moreshop/moreshop.js"))
 const Login = loadable(() => import("@/pages/login/login.js"))
+const WriteShop = loadable(() => import("@/pages/writeShop/writeShop.js"))
 
 const routes = [
     {path:'/',component:<Home/>},
@@ -17,6 +18,7 @@ const routes = [
     {path:'/shopdetail',component:<Shopdetail/>},
     {path:'/moreshop',component:<Moreshop/>},
     {path:'/login',component:<Login/>},
+    {path:'/writeShop',component:<WriteShop/>},
 ]
  
 export default routes;
