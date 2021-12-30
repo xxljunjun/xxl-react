@@ -14,6 +14,9 @@ const Commodity = props=>{
   const goToDetail = ()=>{
     navigate('/shopdetail')
   }
+  const toOldNew = ()=>{
+    navigate('/writeShop')
+  }
   return <>
   <div className="commodity">
         <div className="title">精灵 Phantom</div>
@@ -35,7 +38,7 @@ const Commodity = props=>{
           </div>
         </div>
         <div className="threen">更多 Mavic 产品</div>
-        <div className="four">
+        <div className="four" onClick={toOldNew}>
             <img src={banner} alt=""/>
         </div>
       </div>
