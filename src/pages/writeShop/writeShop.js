@@ -112,10 +112,14 @@ const WriteShop = (props) => {
   const chooseStep = (large, inner) => {
     console.log(large);
     console.log(inner);
+    //选项不可用
     if(inner.isNoBack){
       setDialogStatus(true)
       return
     }
+    //滚动到当前位置
+    let dom = document.getElementById(`aline${large.id}`)
+    dom.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
     const objarr = JSON.parse(JSON.stringify(numarr));
     objarr.forEach((val) => {
@@ -186,7 +190,14 @@ const WriteShop = (props) => {
   }, []);
   return (
     <>
-      <TipsDialog dialogStatus={dialogStatus} close={closetipsDialog}/>
+      <TipsDialog 
+        maskcan={true}
+        height={true}
+        dialogStatus={dialogStatus} 
+        close={closetipsDialog}
+        title={`温馨提示`}
+        text={`为了您的隐私安全，暂不回收该类机器`}
+      />
       <div className="writerShop"> 
         <TopBar />
         {/* 进度条 */}
@@ -213,7 +224,7 @@ const WriteShop = (props) => {
             return (
               step + 1 >= item.id && (
                 <div className="step" key={item.id}>
-                  <div className="aline">
+                  <div className={`aline`} id={`aline${item.id}`}>
                     {item.name}
                     {!item.ischoose && (
                       <div>

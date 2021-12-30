@@ -28,6 +28,7 @@ const Fixcustomer = props=>{
           onClose={onCloseDrawer}
           visible={drawervisible}
           key={"bottom"}
+          height={400}
         >
           <div>客服服务</div>
         </Drawer>

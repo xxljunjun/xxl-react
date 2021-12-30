@@ -6,9 +6,12 @@ import ShopSwiper from "@/components/shopSwiper/shopSwiper.js";
 import Mybottom from "@/components/mybottom/mybottom.js";
 import Fixcustomer from "@/components/fixcustomer/fixcustomer.js";
 import Mybacktop from "@/components/mybacktop/mybacktop.js";
+import Location from "@/components/location/location.js";
+import AddShop from "@/components/addShop/addShop.js";
 import { Drawer } from "antd";
 const Shopdetail = (props) => {
   let navigate = useNavigate();
+  let [locationStatus, setLocationStatus] = useState(false);
   let [bottomStatus, setBottomStatus] = useState(false);
   let [drawervisible, setDrawervisible] = useState(false);
   const bindHandleScroll = (e) => {
@@ -24,7 +27,12 @@ const Shopdetail = (props) => {
   const openDialog = () => {
     setDrawervisible(true);
   };
-
+  const closeLocation = ()=>{
+    setLocationStatus(false)
+  }
+  const closeAddShop = ()=>{
+    setDrawervisible(false);
+  }
   useEffect(() => {
     window.addEventListener("scroll", bindHandleScroll);
     return () => {
@@ -40,9 +48,20 @@ const Shopdetail = (props) => {
         onClose={() => setDrawervisible(false)}
         visible={drawervisible}
         key={"bottom"}
+        height={'100vh'}
       >
-        <div onClick={() => setDrawervisible(false)}>关闭</div>
-        <div>推荐您添加 DJI Care 随心换</div>
+        <AddShop close={closeAddShop}/>
+      </Drawer>
+      {/* 选择地址组件 */}
+      <Drawer
+        title=""
+        placement={"bottom"}
+        closable={false}
+        visible={locationStatus}
+        key={"bottom"}
+        height={'100vh'}
+      >
+        <Location closeLocation={closeLocation}/>
       </Drawer>
       <Mybacktop />
       <TopSearch />
@@ -61,6 +80,7 @@ const Shopdetail = (props) => {
               加入购物车
             </span>
           </p>
+          <div onClick={()=>setLocationStatus(true)} className="location">深圳市</div>
         </div>
       )}
     </div>

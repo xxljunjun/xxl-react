@@ -1,23 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import "./tipsDialog.less";
-const tipsDialog = (props) => {
+const TipsDialog = (props) => {
   console.log("父组件传的值", props);
-  let {dialogStatus,close} = props;
+  let {dialogStatus,close,title,text,height,maskcan} = props;
   //   let navigate = useNavigate();
   const clickMask = () => {
-    close()
+    if(maskcan){
+      close()
+    }
   };
   const clickComfire = () => {
     close()
   };
+  useEffect(() => {
+    //页面中有遮罩时添加属性使得遮罩不滚动
+    if(dialogStatus){
+      document.body.style.overflow='hidden';
+      document.body.style.height='100%';
+    }else{
+      document.body.style.overflow="visible";
+      document.body.style.height="auto";
+    }
+    return () => {
+      
+    };
+  }, [dialogStatus]);
   return (
     <>
         <div className="tipsDialog" style={{ display: dialogStatus?'block':'none'}}>
           <div className="mask" onClick={clickMask}></div>
-          <div className="box">
-            <h3 className="title">w温馨提示</h3>
-            <p className="text">为了您的隐私安全，暂不回收该类机器</p>
+          <div className="box" style={{height:height?'140px':'auto'}}>
+            <h3 className="title">{title}</h3>
+            <p className="text">{text}</p>
             <p className="btn_box">
               <span className="btn" onClick={clickComfire}>
                 确认
@@ -28,4 +43,4 @@ const tipsDialog = (props) => {
     </>
   );
 };
-export default tipsDialog;
+export default TipsDialog;
