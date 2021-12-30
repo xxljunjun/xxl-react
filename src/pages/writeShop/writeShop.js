@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TopBar from "@/components/topBar/topBar.js";
+import TipsDialog from "@/components/tipsDialog/tipsDialog.js";
 import "./writeShop.less";
 const WriteShop = (props) => {
   let navigate = useNavigate();
+  let [dialogStatus,setDialogStatus] = useState(false)
   let [num, setNum] = useState(8);
   let [otherarr, setOtherarr] = useState([
     { id: 1, check: false, txt: "遥控不正常" },
@@ -41,7 +43,7 @@ const WriteShop = (props) => {
         { id: 1, checkname: "外壳完美无瑕疵", check: false },
         { id: 2, checkname: "外壳轻微磕碰/磨损", check: false },
         { id: 3, checkname: "外壳/排线断裂", check: false },
-        { id: 4, checkname: "云台整体缺失或脱落", check: false },
+        { id: 4, checkname: "云台整体缺失或脱落", check: false,isNoBack:true },
       ],
       ischoose: true,
       who: "",
@@ -104,9 +106,16 @@ const WriteShop = (props) => {
   ]);
   let [step, setStep] = useState(0);
   let [shop, setShop] = useState("iDol智能飞行器");
+  /**
+   * 点击选项
+  */
   const chooseStep = (large, inner) => {
     console.log(large);
     console.log(inner);
+    if(inner.isNoBack){
+      setDialogStatus(true)
+      return
+    }
 
     const objarr = JSON.parse(JSON.stringify(numarr));
     objarr.forEach((val) => {
@@ -128,6 +137,9 @@ const WriteShop = (props) => {
     });
     setNumarr(objarr);
   };
+  /**
+   * 已经选择了的，点击修改
+  */
   const rechoose = (item) => {
     const objarr = JSON.parse(JSON.stringify(numarr));
     console.log(item);
@@ -138,6 +150,9 @@ const WriteShop = (props) => {
     });
     setNumarr(objarr);
   };
+  /**
+   * 选择一些其他的问题
+  */
   const chooseOther = (m)=>{
     console.log(m)
     const objarr = JSON.parse(JSON.stringify(otherarr));
@@ -150,16 +165,29 @@ const WriteShop = (props) => {
     })
     setOtherarr(objarr)
   }
+  /**
+   * 点击查看报价
+  */
   const toSeePrice =()=>{
     //把所有的信息暴露出去
     navigate('/login')
   }
+  /**
+   * 关闭弹窗
+  */
+  const closetipsDialog = ()=>{
+    setDialogStatus(false)
+  }
+  /**
+   * 生命周期
+  */
   useEffect(() => {
     return () => {};
   }, []);
   return (
     <>
-      <div className="writerShop">
+      <TipsDialog dialogStatus={dialogStatus} close={closetipsDialog}/>
+      <div className="writerShop"> 
         <TopBar />
         {/* 进度条 */}
         <div className="process">
@@ -204,6 +232,7 @@ const WriteShop = (props) => {
                             key={val.id}
                             className={val.check ? "choose checked" : "checked"}
                             onClick={() => chooseStep(item, val)}
+                            style={{color:val.isNoBack?'#cccccc':'#000000'}}
                           >
                             {val.checkname}
                           </div>
