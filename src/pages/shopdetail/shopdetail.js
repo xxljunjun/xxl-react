@@ -87,7 +87,7 @@ const Shopdetail = (props) => {
           {
             listArr.map(item=>{
               return(
-                <li>
+                <li key={item.id}>
                   {item.message}
                 </li>
               )
@@ -101,7 +101,7 @@ const Shopdetail = (props) => {
           {
             messageArr.map(item=>{
               return(
-                <div className="box">
+                <div className="box" key={item.id}>
                   <h3>{item.message}</h3>
                   <p>{item.title}</p>
                   <p className="text">
