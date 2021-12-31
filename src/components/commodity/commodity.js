@@ -17,6 +17,9 @@ const Commodity = props=>{
   const toOldNew = ()=>{
     navigate('/writeShop')
   }
+  const goToMore = ()=>{
+    navigate('/moreshop')
+  }
   return <>
   <div className="commodity">
         <div className="title">精灵 Phantom</div>
@@ -26,18 +29,18 @@ const Commodity = props=>{
           <p className="price">¥46888</p>
         </div>
         <div className="two">
-          <div className="box_1 box">
+          <div className="box_1 box" onClick={goToDetail}>
             <img src={img_2} alt="" className="shop_img" />
             <h3 className="shopname">DJI Air 2S</h3>
             <p className="price">¥6499</p>
           </div>
-          <div className="box_2 box">
+          <div className="box_2 box" onClick={goToDetail}>
             <img src={img_3} alt="" className="shop_img" />
             <h3 className="shopname">DJI Mini 2</h3>
             <p className="price">¥2899</p>
           </div>
         </div>
-        <div className="threen">更多 Mavic 产品</div>
+        <div className="threen" onClick={goToMore}>更多 Mavic 产品</div>
         <div className="four" onClick={toOldNew}>
             <img src={banner} alt=""/>
         </div>

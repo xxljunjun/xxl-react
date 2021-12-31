@@ -63,6 +63,9 @@ const lessModuleRegex = /\.module\.less$/;
  //在入口文件引入less样式
  import "antd/dist/antd.css";
 
+//安装ant图标库
+npm install --save @ant-design/icons
+
 ```
 ### 五、配置路由
 ```js
@@ -154,4 +157,15 @@ class Demo extends React.Component{
     
   }
 }
+```
+
+### 八、滚动插件
+```js
+npm install better-scroll --save
+
+/*
+//插件官网地址
+https://better-scroll.github.io/docs/zh-CN/
+*/
+
 ```

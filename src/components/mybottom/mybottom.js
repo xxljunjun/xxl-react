@@ -9,32 +9,40 @@ const Mybottom = (props) => {
       id: 1,
       some: "热门产品分类",
       cildren: [
-        { id: 1, shop: "御 Mavic" },
-        { id: 2, shop: "灵眸 Osmo" },
+        { id: 1, shop: "航拍无人机" },
+        { id: 2, shop: "手持拍摄设备" },
+        { id: 3, shop: "商用产品及方案" },
+        { id: 4, shop: "增值服务" },
       ],
     },
     {
       id: 2,
       some: "帮助与支持",
       cildren: [
-        { id: 1, shop: "御 Mavic" },
-        { id: 2, shop: "灵眸 Osmo" },
+        { id: 1, shop: "支付方式" },
+        { id: 2, shop: "订单帮助" },
+        { id: 3, shop: "发货和物流" },
+        { id: 4, shop: "维修中心" },
+        { id: 5, shop: "技术支持" },
+        { id: 6, shop: "售后服务政策" },
       ],
     },
     {
       id: 3,
       some: "商城项目",
       cildren: [
-        { id: 1, shop: "御 Mavic" },
-        { id: 2, shop: "灵眸 Osmo" },
+        { id: 1, shop: "DJI 币返利计划" },
+        { id: 2, shop: "DJI 大疆商城 APP" },
       ],
     },
     {
       id: 4,
       some: "探索精彩大疆",
       cildren: [
-        { id: 1, shop: "御 Mavic" },
-        { id: 2, shop: "灵眸 Osmo" },
+        { id: 1, shop: "天空之城" },
+        { id: 2, shop: "DJI 大疆社区" },
+        { id: 3, shop: "安全飞行指引" },
+        { id: 4, shop: "环球飞行指南" },
       ],
     },
   ];

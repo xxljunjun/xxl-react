@@ -47,7 +47,7 @@ const Shopdetail = (props) => {
         closable={false}
         onClose={() => setDrawervisible(false)}
         visible={drawervisible}
-        key={"bottom"}
+        key={"bottom_1"}
         height={'100vh'}
       >
         <AddShop close={closeAddShop}/>
@@ -58,7 +58,7 @@ const Shopdetail = (props) => {
         placement={"bottom"}
         closable={false}
         visible={locationStatus}
-        key={"bottom"}
+        key={"bottom_2"}
         height={'100vh'}
       >
         <Location closeLocation={closeLocation}/>
