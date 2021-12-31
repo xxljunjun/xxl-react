@@ -6,6 +6,7 @@ import Fixcustomer from "@/components/fixcustomer/fixcustomer.js";
 import Mybacktop from "@/components/mybacktop/mybacktop.js";
 import BScroll from "@better-scroll/core";
 import { swiper_1 } from "@/utils/img.js";
+import MoreshopBox from "@/components/moreshop_box/moreshop_box.js";
 const Moreshop = (props) => {
   let navigate = useNavigate();
   let [swiperArr, setSwiperArr] = useState([
@@ -82,15 +83,7 @@ const Moreshop = (props) => {
         <div className="serve">
           <p className="title">DJI Care 增值服务</p>
           {serveArr.map((val) => {
-            return (
-              <div className="val_box">
-                <img src={val.img_url} alt="" className="shop_img" />
-                <div className="txx_box">
-                  <h2>{val.message}</h2>
-                  <p>{val.price}</p>
-                </div>
-              </div>
-            );
+            return <MoreshopBox obj={val} />;
           })}
         </div>
         <div className="serve_two">
@@ -108,7 +101,13 @@ const Moreshop = (props) => {
           </div>
         </div>
         <div className="large_box">
-          <div className="inner_box"></div>
+          <div className="inner_box">
+            {serveArr.map((val) => {
+              return <MoreshopBox obj={val} />;
+            })}
+            <div className="more">更多</div>
+          </div>
+          
         </div>
       </div>
     </>
