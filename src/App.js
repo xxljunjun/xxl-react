@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// HashRouter
+// BrowserRouter
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import routerArr from "@/pages/index.js";
 export default function App() {
   console.log(routerArr);
