@@ -31,6 +31,7 @@ const Shopdetail = (props) => {
     // 滚动的高度
     const scrollTop =
       e.srcElement.documentElement.scrollTop || window.pageYOffset;
+      // console.log(scrollTop)
     if (scrollTop >= 375) {
       setBottomStatus(true);
     } else {
@@ -62,6 +63,7 @@ const Shopdetail = (props) => {
         visible={drawervisible}
         key={"bottom_1"}
         height={'100vh'}
+        destroyOnClose={true}
       >
         <AddShop close={closeAddShop}/>
       </Drawer>
