@@ -320,34 +320,62 @@ const Location = (props) => {
       ],
     },
   ]);
+  let [searchArr,setSearchArr] = useState([])
   let [locationStatus, setLocationStatus] = useState(true);
   let [topletterstatus, setTopletterstatus] = useState(false);
   let [letterstatus, setLetterstatus] = useState(false);
   let [keyword, setKeyword] = useState("");
+  /**
+   * input输入事件
+   */
   const wordChange = (e) => {
-    console.log(e);
-    //单词联想功能
+    // console.log(e);
+    setKeyword(e.target.value)
+    filerData()
   };
+  /**
+   * 单词联想功能
+   */
+  const filerData = ()=>{
+    setSearchArr(['深圳','北京','上海','南京'])
+  }
+  /**
+   * input框失去焦点
+   */
   const cancleFocus = () => {
     setLocationStatus(true);
+    setSearchArr([])
+    setKeyword('')
   };
+  /**
+   * input框聚焦
+   */
   const wordFocus = () => {
     setLocationStatus(false);
   };
+  /**
+   * 关闭弹窗
+   */
   const closeDialog = () => {
     closeLocation();
     setTopletterstatus(false);
   };
+  /**
+   * 选择城市
+   */
   const chooseCity = () => {
     closeLocation();
   };
+  /**
+   * 打开字母表
+   */
   const openLetter = () => {
     setLetterstatus(!letterstatus);
   };
   useEffect(() => {
-    setTimeout(() => {
-      setTopletterstatus(true);
-    }, 2000);
+    // setTimeout(() => {
+    //   setTopletterstatus(true);
+    // }, 2000);
     return () => {};
   }, []);
   return (
@@ -391,7 +419,7 @@ const Location = (props) => {
             </span>
           )}
         </div>
-        {locationStatus && (
+        {locationStatus ? (
           <>
             <h4 className="title">常用地址</h4>
             <div className="orign_city" onClick={chooseCity}>
@@ -426,7 +454,15 @@ const Location = (props) => {
               })}
             </div>
           </>
-        )}
+        ):<ul className="search_box">
+            {
+              searchArr.map((val,index)=>{
+                return(
+                  <li key={index} className="search_li" onClick={chooseCity}>{val}</li>
+                )
+              })
+            }
+          </ul>}
       </div>
     </>
   );

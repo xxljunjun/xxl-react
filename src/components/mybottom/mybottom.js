@@ -1,9 +1,11 @@
 import React from "react";
 import "./mybottom.less";
 import { Collapse } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 const { Panel } = Collapse;
 
 const Mybottom = (props) => {
+  let navigate = useNavigate();
   const buttomArr = [
     {
       id: 1,
@@ -46,16 +48,19 @@ const Mybottom = (props) => {
       ],
     },
   ];
+  const goTomoreshop = ()=>{
+    navigate('/moreshop')
+  }
   return (
     <>
       <div className="my_bottom">
-        <Collapse bordered={false} accordion>
+        <Collapse bordered={false} accordion defaultActiveKey={1}>
           {buttomArr.map((val) => {
             return (
               <Panel header={val.some} key={val.id}>
                 <ul>
                   {val.cildren.map((txt,index) => {
-                    return <li key={index} style={{padding:10}}>{txt.shop}</li>;
+                    return <li key={index} style={{padding:10}} onClick={goTomoreshop}>{txt.shop}</li>;
                   })}
                 </ul>
               </Panel>
