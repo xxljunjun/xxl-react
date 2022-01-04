@@ -1,5 +1,5 @@
 import React from "react";
-// HashRouter
+// HashRouter 带#号的url
 // BrowserRouter
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import routerArr from "@/pages/index.js";
