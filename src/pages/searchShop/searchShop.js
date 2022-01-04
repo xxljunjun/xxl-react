@@ -21,12 +21,15 @@ const SearchShop = (props) => {
   const searchInput = (e) => {
     setKeyword(e.target.value)
   };
+  const goToDetail = ()=>{
+    navigate("/shopdetail");
+  }
   return (
     <>
       <div className="searchShop">
         <div className="top">
           <Input
-            placeholder="搜索产品"
+            placeholder="搜索商品..."
             value={keyword}
             type="text"
             onChange={searchInput}
@@ -40,7 +43,7 @@ const SearchShop = (props) => {
           <ul>
             {searchArr.map((val) => {
               return (
-                <li className="searchname" key={val.id}>
+                <li className="searchname" key={val.id} onClick={goToDetail}>
                   {val.xxl}
                 </li>
               );
