@@ -1,8 +1,10 @@
 import React from "react";
 import "./login.less";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 
 const Login = (props) => {
+  let navigate = useNavigate();
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -10,6 +12,9 @@ const Login = (props) => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+  const jumpPage = ()=>{
+    navigate('/resetPassword')
+  }
   return (
     <>
       <header>登录</header>
@@ -49,7 +54,7 @@ const Login = (props) => {
         </Form>
        
       </div>
-      <div className="forget">忘记密码？</div>
+      <div className="forget" onClick={jumpPage}>忘记密码？</div>
       <div className="register">注册DJI账号</div>
       <div className="idcar">以游客身份购买</div>
       <div className="question">登录遇到问题？</div>

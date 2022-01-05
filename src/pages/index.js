@@ -10,6 +10,7 @@ const Shopdetail = loadable(() => import("@/pages/shopdetail/shopdetail.js"))
 const Moreshop = loadable(() => import("@/pages/moreshop/moreshop.js"))
 const Login = loadable(() => import("@/pages/login/login.js"))
 const WriteShop = loadable(() => import("@/pages/writeShop/writeShop.js"))
+const ResetPassword = loadable(() => import("@/pages/resetPassword/resetPassword.js"))
 
 const routes = [
     {path:'/',component:<Home/>},
@@ -19,6 +20,7 @@ const routes = [
     {path:'/moreshop',component:<Moreshop/>},
     {path:'/login',component:<Login/>},
     {path:'/writeShop',component:<WriteShop/>},
+    {path:'/resetPassword',component:<ResetPassword/>},
 ]
  
 export default routes;
