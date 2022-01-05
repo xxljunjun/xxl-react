@@ -3,6 +3,7 @@ import "./shopSwiper.less";
 import { Link, useNavigate } from "react-router-dom";
 import { Carousel } from "antd";
 import { swiper_1, swiper_2, swiper_3 } from "@/utils/img.js";
+import xxlvideo from '@/static/video/badminton.mp4' 
 const ShopSwiper = (props) => {
   let navigate = useNavigate();
   let [swiperNum, setSwiperNum] = useState(1);
@@ -76,7 +77,10 @@ const ShopSwiper = (props) => {
           </>
         )}
         {step === 2 && (
-          <div className="yangping"></div>
+          <div className="yangping">
+            <video width="375" height="375" controls src={xxlvideo} type="video/mp4">
+            </video>
+          </div>
         )}
         {step === 3 && (
           <div className="jiesao"></div>
