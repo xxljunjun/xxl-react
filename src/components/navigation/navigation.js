@@ -29,6 +29,9 @@ const Navigation = (props) => {
     },
     { id: 4, title: "指南", list: [{ id: 1, xxl: "购机指南" }] },
   ]);
+  const toDetail = ()=>{
+    navigate('/moreshop')
+  }
   useEffect(() => {
     return () => {};
   }, []);
@@ -41,7 +44,7 @@ const Navigation = (props) => {
             <div className="mylist">
               {item.list.map((val) => {
                 return (
-                  <div className="item" key={val.id}>
+                  <div className="item" key={val.id} onClick={toDetail}>
                     {val.xxl}
                     <span>{">"}</span>
                   </div>

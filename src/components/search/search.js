@@ -23,16 +23,16 @@ const Search = props =>{
   }
   useEffect(()=>{
     PubSub.subscribe('numstatus',(msg,data) => {
-      // console.log('11111111111',msg)
-      // console.log('2222222',data)
-      if(data){
-        setNum(num++)
-      }
+      console.log('11111111111',msg)
+      console.log('2222222',data)
+      // if(data){
+        setNum(3)
+      // }
     })
     return ()=>{
-
+      PubSub.unsubscribe('numstatus');
     }
-  },[])
+  },[num])
   return (
     <>
       <div className="topsearch">
