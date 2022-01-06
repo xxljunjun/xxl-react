@@ -8,6 +8,7 @@ import Fixcustomer from "@/components/fixcustomer/fixcustomer.js";
 import Mybacktop from "@/components/mybacktop/mybacktop.js";
 import Location from "@/components/location/location.js";
 import AddShop from "@/components/addShop/addShop.js";
+import PubSub from 'pubsub-js'
 import { Drawer } from "antd";
 const Shopdetail = (props) => {
   let navigate = useNavigate();
@@ -40,6 +41,9 @@ const Shopdetail = (props) => {
   };
   const openDialog = () => {
     setDrawervisible(true);
+    //购物车数量增加
+      // 发布消息
+    PubSub.publish('numstatus',true)
   };
   const closeLocation = ()=>{
     setLocationStatus(false)

@@ -2,8 +2,9 @@ import React from "react";
 import "./login.less";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Input, Button } from "antd";
-
+// const XxxContext = React.createContext()
 const Login = (props) => {
+  
   let navigate = useNavigate();
   const onFinish = (values) => {
     console.log("Success:", values);
@@ -60,7 +61,23 @@ const Login = (props) => {
       <div className="question">登录遇到问题？</div>
       <div className="comunicat">联系客服 | 常见问题</div>
       <div className="xxl_bottom"></div>
+       {/* <XxxContext.Provider value={{xxlname:'xxl',age:12}}>
+         <Son/>
+       </XxxContext.Provider> */}
     </>
   );
 };
 export default Login;
+
+// function Son(){
+//   return<>
+//     <div>11111111</div>
+//     <XxxContext.Consumer>
+//         {
+//           value=>{
+//             return <li>{value.xxlname}</li>
+//           }
+//         }
+//       </XxxContext.Consumer>
+//   </>
+// }

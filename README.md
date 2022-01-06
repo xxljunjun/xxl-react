@@ -213,3 +213,47 @@ module.exports = ({ file }) => {
 
 }
 ```
+
+#### 十一、react组件间的项目通信
+
++ 父子间通信
+```js
+  // props
+```
+
++ 祖孙组件通信
+```js
+  // context
+  const XxxContext = React.createContext()
+  <XxxContext.Provider value={{xxlname:'xxl',age:12}}>
+    <Son/>
+  </XxxContext.Provider>
+  <XxxContext.Consumer>
+    {
+      value=>{
+        return <li>{value.xxlname}</li>
+      }
+    }
+  </XxxContext.Consumer>
+```
+
++ 任意组件通信
+```js
+  // reduce
+```
+
++ 兄弟组件通信
+```js
+  // npm install pubsub-js -S
+  import PubSub from 'pubsub-js'
+  // 订阅消息
+    PubSub.subscribe('msg',(msg,data) => {
+      console.log(msg)
+      console.log(data)
+      this.setState({
+        msg:data
+      })
+    })
+    // 发布消息
+  PubSub.publish('msg',`我是发布的随机数：${parseInt(Math.random()*1000)}`)
+```
