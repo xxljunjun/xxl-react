@@ -36,19 +36,19 @@ const Navigation = (props) => {
     <div className="nav_box">
       {allArr.map((item) => {
         return (
-          <>
+          <React.Fragment key={item.id}>
             <div className="title">{item.title}</div>
             <div className="mylist">
               {item.list.map((val) => {
                 return (
-                  <div className="item">
+                  <div className="item" key={val.id}>
                     {val.xxl}
                     <span>{">"}</span>
                   </div>
                 );
               })}
             </div>
-          </>
+          </React.Fragment>
         );
       })}
       <div className="box">
