@@ -16,6 +16,9 @@ const Login = (props) => {
   const jumpPage = ()=>{
     navigate('/resetPassword')
   }
+  const jumpegister = ()=>{
+    navigate('/register')
+  }
   return (
     <>
       <header>登录</header>
@@ -56,7 +59,7 @@ const Login = (props) => {
        
       </div>
       <div className="forget" onClick={jumpPage}>忘记密码？</div>
-      <div className="register">注册DJI账号</div>
+      <div className="register" onClick={jumpegister}>注册DJI账号</div>
       <div className="idcar">以游客身份购买</div>
       <div className="question">登录遇到问题？</div>
       <div className="comunicat">联系客服 | 常见问题</div>

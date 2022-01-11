@@ -12,6 +12,7 @@ const Login = loadable(() => import("@/pages/login/login.js"))
 const WriteShop = loadable(() => import("@/pages/writeShop/writeShop.js"))
 const ResetPassword = loadable(() => import("@/pages/resetPassword/resetPassword.js"))
 const AddSucceed = loadable(() => import("@/pages/addSucceed/addSucceed.js"))
+const Register = loadable(() => import("@/pages/register/register.js"))
 
 const routes = [
     {path:'/',component:<Home/>},
@@ -23,6 +24,7 @@ const routes = [
     {path:'/writeShop',component:<WriteShop/>},
     {path:'/resetPassword',component:<ResetPassword/>},
     {path:'/addSucceed',component:<AddSucceed/>},
+    {path:'/register',component:<Register/>},
 ]
  
 export default routes;
