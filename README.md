@@ -303,3 +303,12 @@ module.exports = ({ file }) => {
   //rudux + rudux-react-------------大项目
   // 主要的想法是如何根据这些 action 对象来更新 state
 ```
+
+#### 十二、HOOKS写法
+```js
+//useState：状态钩子
+//useEffect:副作用钩子
+//useContext():共享状态钩子
+//useReducer()：action 钩子
+//useMemo、useCallback：减少子组件的多余render
+```
