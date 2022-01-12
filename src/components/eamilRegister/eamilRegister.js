@@ -41,21 +41,21 @@ const EamilRegister = (props) => {
           name="username"
           rules={[{ required: true, message: "手机号不能为空" }]}
         >
-            <Input className="pnone_input" placeholder="请输入手机号*"/>
+            <Input className="pnone_input" placeholder="邮箱*"/>
         </Form.Item>
 
         <Form.Item
           name="password_1"
           rules={[{ required: true, message: "手机号不能为空" }]}
         >
-            <Input className="pnone_input" placeholder="请输入手机号*"/>
+            <Input className="pnone_input" placeholder="密码*"/>
         </Form.Item>
 
         <Form.Item
           name="password_2"
           rules={[{ required: true, message: "手机号不能为空" }]}
         >
-            <Input className="pnone_input" placeholder="请输入手机号*"/>
+            <Input className="pnone_input" placeholder="再次输入密码*"/>
         </Form.Item>
 
         <Form.Item
@@ -73,7 +73,7 @@ const EamilRegister = (props) => {
       </Form>
       <div className="idcar">
         <div onClick={goToLogin}>立即登录</div>
-        <div>以游客身份购买</div>
+        {/* <div>以游客身份购买</div> */}
       </div>
       <div className="question">登录遇到问题？</div>
       <div className="comunicat">联系客服 | 常见问题</div>

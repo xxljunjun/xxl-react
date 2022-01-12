@@ -18,7 +18,7 @@ const Register = (props) => {
       <div className="swithtabBar">
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="手机注册" key="1">
-            <PhoneRegister/>
+            <PhoneRegister isregister={true}/>
           </TabPane>
           <TabPane tab="邮箱注册" key="2">
             <EamilRegister/>

@@ -237,11 +237,6 @@ module.exports = ({ file }) => {
   </XxxContext.Consumer>
 ```
 
-+ 任意组件通信
-```js
-  // reduce
-```
-
 + 兄弟组件通信
 ```js
   // npm install pubsub-js -S
@@ -256,4 +251,55 @@ module.exports = ({ file }) => {
     })
     // 发布消息
   PubSub.publish('msg',`我是发布的随机数：${parseInt(Math.random()*1000)}`)
+```
+
++ 任意组件通信mobs
+```js
+//mobs
+//跨平台开发app
+//小程序
+//mobs + mobx-react --------------小项目
+    npm install mobs -S
+// mobx-react
+//在src中新建 store/index.js，代码如下
+    import { makeObservable,action,observable } from 'mobx'
+    class Store {
+      constructor() {
+          makeAutoObservable(this,{
+              msg:observable,
+              changeMsg:action,
+              total:computed
+          })
+      }
+      msg = 'hello'
+      list = []
+      changeMsg(payload) {
+          this.msg = payload
+      }
+      get total(){
+        return this.list.length
+      }
+    }
+    export default new Store()
+//在App.js中，代码如下
+    import { Provider } from 'mobx-react'
+    import store from './store/index.js'
+    export default function App() {
+      return(
+          <Provider store={store}>
+            <Layout />
+          </Provider>
+      )
+    }
+//在页面组件中代码如下：
+    import { inject, observer } from 'mobx-react'
+    export default inject('store')(observer(props=>()))
+//在页面中，使用 props.store 来访问 共享的数据和action方法。
+```
+
++ 任意组件通信mobs
+```js
+  // reduce
+  //rudux + rudux-react-------------大项目
+  // 主要的想法是如何根据这些 action 对象来更新 state
 ```

@@ -1,11 +1,14 @@
-import React from "react";
+import React ,{useState}from "react";
 import "./login.less";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Input, Button } from "antd";
+import PhoneRegister from "@/components/phoneRegister/phoneRegister.js";
 // const XxxContext = React.createContext()
 const Login = (props) => {
   
   let navigate = useNavigate();
+  let [isPhoneLogin,setIsPhoneLogin] = useState(true)
+  let [loginStr,setLoginStr] = useState('手机短信登录/注册')
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -19,10 +22,21 @@ const Login = (props) => {
   const jumpegister = ()=>{
     navigate('/register')
   }
+  const switchLogin = ()=>{
+    console.log("切换登录方方式")
+    setIsPhoneLogin(!isPhoneLogin)
+    if(isPhoneLogin){
+      setLoginStr('账号密码登录')
+    }else{
+      setLoginStr('手机短信登录/注册')
+    }
+   
+  }
   return (
     <>
       <header>登录</header>
-      <div className="submit_box">
+      {
+        isPhoneLogin ?<div className="submit_box">
         <Form
           name="basic"
           initialValues={{ remember: true }}
@@ -34,7 +48,7 @@ const Login = (props) => {
             name="username"
             rules={[{ required: true, message: "邮箱/手机不能为空" }]}
           >
-            <Input />
+            <Input placeholder="邮箱/手机*"/>
           </Form.Item>
 
           <Form.Item
@@ -42,7 +56,7 @@ const Login = (props) => {
             rules={[{ required: true, message: "密码不能为空" }]}
 
           >
-            <Input.Password />
+            <Input.Password placeholder="密码*"/>
           </Form.Item>
 
           <Form.Item >
@@ -50,13 +64,14 @@ const Login = (props) => {
               登录
             </Button>
           </Form.Item>
-          <Form.Item >
-          <Button className="my_register">
-        手机短信登录/注册
-        </Button>
-          </Form.Item>
         </Form>
        
+      </div>:<PhoneRegister isregister={false}/>
+      }
+      <div className="my_register_box">
+        <Button className="my_register" onClick={switchLogin}>
+          {loginStr}
+        </Button>
       </div>
       <div className="forget" onClick={jumpPage}>忘记密码？</div>
       <div className="register" onClick={jumpegister}>注册DJI账号</div>
