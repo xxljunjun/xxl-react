@@ -2,6 +2,7 @@ import React, { useState,useEffect} from "react";
 import { Select } from "antd";
 import "./studyRedux.less";
 import store from '@/store/index.js'
+import {changeCount} from '@/actions/index.js'
 const { Option } = Select;
 const StudyRedux = (props) => {
   // console.log('学习redux的props',store.getState())
@@ -32,10 +33,7 @@ const StudyRedux = (props) => {
     }
     console.log(shortNum)
     //改变redux中的变量count
-    store.dispatch({
-      type:'CHANGE_COUNT',
-      data:shortNum
-    })
+    changeCount(shortNum)
   };
   useEffect(() => {
     // 监听state的变化

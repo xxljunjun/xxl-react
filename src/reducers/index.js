@@ -7,7 +7,7 @@ const rootReducer = (state = initState, action) => {
   switch (action.type) {
     case "CHANGE_COUNT":
       return Object.assign({}, state, {
-        count: action.data,
+        count: action.payload,
       });
 
     default:
