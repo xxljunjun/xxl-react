@@ -297,11 +297,12 @@ module.exports = ({ file }) => {
 //在页面中，使用 props.store 来访问 共享的数据和action方法。
 ```
 
-+ 任意组件通信mobs
++ 任意组件通信reduce
 ```js
   // reduce
   //rudux + rudux-react-------------大项目
   // 主要的想法是如何根据这些 action 对象来更新 state
+  
 ```
 
 #### 十二、HOOKS写法
@@ -311,4 +312,30 @@ module.exports = ({ file }) => {
 //useContext():共享状态钩子
 //useReducer()：action 钩子
 //useMemo、useCallback：减少子组件的多余render
+npm install --save redux
+npm install --save react-redux
+npm install --save-dev redux-devtools
+```
++ 在入口文件的index.js中
+```js
+import store from './store'
+<App store={store}/>
+```
++ 在store.js中
+```js
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+export default createStore(rootReducer)
+```
++ 在reducers/index.js
+```js
+const initState = {
+    num:100,
+    myName:'廖军军',
+    myAge:22
+}
+const rootReducer = (state = initState,action) => {
+            return state
+}
+export default rootReducer
 ```

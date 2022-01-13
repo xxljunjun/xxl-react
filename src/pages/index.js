@@ -13,6 +13,7 @@ const WriteShop = loadable(() => import("@/pages/writeShop/writeShop.js"))
 const ResetPassword = loadable(() => import("@/pages/resetPassword/resetPassword.js"))
 const AddSucceed = loadable(() => import("@/pages/addSucceed/addSucceed.js"))
 const Register = loadable(() => import("@/pages/register/register.js"))
+const StudyRedux = loadable(() => import("@/pages/studyRedux/studyRedux.js"))
 
 const routes = [
     {path:'/',component:<Home/>},
@@ -25,6 +26,7 @@ const routes = [
     {path:'/resetPassword',component:<ResetPassword/>},
     {path:'/addSucceed',component:<AddSucceed/>},
     {path:'/register',component:<Register/>},
+    {path:'/studyredux',component:<StudyRedux/>},
 ]
  
 export default routes;

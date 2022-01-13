@@ -32,6 +32,9 @@ const Navigation = (props) => {
   const toDetail = ()=>{
     navigate('/moreshop')
   }
+  const jumpRedux = ()=>{
+    navigate('/studyredux')
+  }
   useEffect(() => {
     return () => {};
   }, []);
@@ -55,7 +58,7 @@ const Navigation = (props) => {
         );
       })}
       <div className="box">
-        <div className="line">更改国家或地区</div>
+        <div className="line" onClick={jumpRedux}>更改国家或地区</div>
       </div>
     </div>
   );
