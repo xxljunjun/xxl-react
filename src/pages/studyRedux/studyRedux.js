@@ -1,40 +1,56 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
 import { Select } from "antd";
 import "./studyRedux.less";
-import store from '../../store'
+import store from '@/store/index.js'
 const { Option } = Select;
 const StudyRedux = (props) => {
-  console.log('学习redux的props',store.getState())
-  let {num} = store.getState()
-  const [count, setCount] = useState(0);
+  // console.log('学习redux的props',store.getState())
   const [addNum, setAddNum] = useState(1);
+  let [count,setCount] = useState(store.getState().count)
   const handleChange = (value) => {
     console.log(value);
     setAddNum(Number(value));
   };
   const handle = (some) => {
     console.log(some);
-    console.log(addNum);
+    let shortNum = ''
     switch (some) {
       case "+":
-        setCount(count + addNum);
+        shortNum= count+addNum
         break;
       case "-":
-        setCount(count - addNum);
+        shortNum= count-addNum
         break;
       case "x":
-        setCount(count * addNum);
+        shortNum= count*addNum
         break;
       case "/":
-        setCount(count / addNum);
+        shortNum= count/addNum
         break;
       default:
         break;
     }
+    console.log(shortNum)
+    //改变redux中的变量count
+    store.dispatch({
+      type:'CHANGE_COUNT',
+      data:shortNum
+    })
   };
+  useEffect(() => {
+    // 监听state的变化
+    let unsubscribe  = store.subscribe(() => {
+      console.log('监听中..',store.getState())
+      setCount(store.getState().count)
+    })
+    return () => {
+      // 取消监听
+      unsubscribe();
+    }
+  },[])
   return (
     <div className="studyRedux">
-      {num}
+      {count}
       <br />
       <div className="handelBox">
         <div onClick={() => handle("+")}>+</div>

@@ -316,12 +316,12 @@ npm install --save redux
 npm install --save react-redux
 npm install --save-dev redux-devtools
 ```
-+ 在入口文件的index.js中
++ 在项目入口文件的index.js中
 ```js
 import store from './store'
 <App store={store}/>
 ```
-+ 在store.js中
++ 在store/index.js中
 ```js
 import { createStore } from 'redux'
 import rootReducer from './reducers'

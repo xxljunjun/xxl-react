@@ -4,8 +4,8 @@ import "./index.css";
 import "antd/dist/antd.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import store from './store'
-// console.log('引入redux全局store',store)
+import store from '@/store/index.js'
+console.log('入口文件的redux',store)
 
 ReactDOM.render(
   <React.StrictMode>
