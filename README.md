@@ -339,3 +339,15 @@ const rootReducer = (state = initState,action) => {
 }
 export default rootReducer
 ```
++ actions/index.js
+```js
+//该文件统一控制actions中的dispatch分发
+import store from '@/store/index.js'
+//改变count
+export function changeCount(payload){
+    store.dispatch({
+        type:'CHANGE_COUNT',
+        payload
+    })
+}
+```

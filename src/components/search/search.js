@@ -5,21 +5,27 @@ import { Link,useNavigate} from "react-router-dom";
 import {Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import PubSub from 'pubsub-js'
+import store from "@/store/index.js";
+import {changeNavstatus} from '@/actions/index.js'
 
 
 const Search = props =>{
+  let {who} = props
   let navigate = useNavigate()
   let [num,setNum]= useState(2)
-  let [navStatus,setNavStatus] = useState(true)
   const gotoreflesh = () => {
     // console.log("刷新页面",navigate);
     navigate('/')
-    setNavStatus(true)
-    PubSub.publish('navStatus',false)
+    // setNavStatus(true)
+    // PubSub.publish('navStatus',false)
+    changeNavstatus(false)
   };
   const chtrolNav = ()=>{
-    setNavStatus(!navStatus)
-    PubSub.publish('navStatus',navStatus)
+    // setNavStatus(!navStatus)
+    // PubSub.publish('navStatus',navStatus)
+    console.log(store.getState().navstatus)
+    store.getState().navstatus?changeNavstatus(false):changeNavstatus(true)
+    navigate(`/${who}`)
   }
   useEffect(()=>{
     PubSub.subscribe('numstatus',(msg,data) => {
@@ -38,7 +44,7 @@ const Search = props =>{
       <div className="topsearch">
         <div className="left" onClick={chtrolNav}>
           {
-            navStatus?<img src={gang} alt="" className="left_img" />:'关闭'
+            !store.getState().navstatus?<img src={gang} alt="" className="left_img" />:'关闭'
           }
           
         </div>
@@ -51,7 +57,7 @@ const Search = props =>{
           />
         </div>
        {
-         navStatus &&  <div className="right">
+         !store.getState().navstatus &&  <div className="right">
           <Link to="/search">
             <img src={search} alt="" className="right_img_1" />
           </Link>

@@ -7,11 +7,10 @@ import Mybottom from "@/components/mybottom/mybottom.js";
 import Fixcustomer from "@/components/fixcustomer/fixcustomer.js";
 import Mybacktop from "@/components/mybacktop/mybacktop.js";
 import Navigation from "@/components/navigation/navigation.js";
-import PubSub from 'pubsub-js'
+import store from "@/store/index.js";
 import "./home.less";
 import { Link, useNavigate } from "react-router-dom";
 const Home = (props) => {
-  let [navStatus, setNavStatus] = useState(false);
   let navigate = useNavigate();
   let [buttomArr, setButtomArr] = useState([
     { id: 1, some: "热门产品分类" },
@@ -20,17 +19,16 @@ const Home = (props) => {
     { id: 4, some: "探索精彩大疆" },
   ]);
   useEffect(() => {
-    PubSub.subscribe('navStatus',(msg,data) => {
-      console.log(msg)
-      console.log(data)
-      setNavStatus(data)
-    })
+  
     return () => {};
   }, []);
   return (
     <>
-     <TopSearch />
-      {navStatus ? (
+    {
+      console.log('home的render')
+    }
+     <TopSearch who={''}/>
+      {store.getState().navstatus ? (
         <Navigation />
       ) : (
         <div className="home">

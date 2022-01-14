@@ -8,3 +8,11 @@ export function changeCount(payload){
         payload
     })
 }
+
+//改变导航栏状态
+export function changeNavstatus(payload){
+    store.dispatch({
+        type:'CHANGE_NAVSTATUS',
+        payload
+    })
+}

@@ -1,4 +1,5 @@
 const initState = {
+  navstatus:false,
   count: 0,
   myName: "廖军军",
   myAge: 22,
@@ -9,7 +10,11 @@ const rootReducer = (state = initState, action) => {
       return Object.assign({}, state, {
         count: action.payload,
       });
-
+    case "CHANGE_NAVSTATUS":
+      console.log('触发了redux',action)
+      return Object.assign({}, state, {
+        navstatus: action.payload,
+      });
     default:
       return state;
   }

@@ -7,6 +7,8 @@ import Mybacktop from "@/components/mybacktop/mybacktop.js";
 import BScroll from "@better-scroll/core";
 import { swiper_1 } from "@/utils/img.js";
 import MoreshopBox from "@/components/moreshop_box/moreshop_box.js";
+import store from "@/store/index.js";
+import Navigation from "@/components/navigation/navigation.js";
 const Moreshop = (props) => {
   let navigate = useNavigate();
   let [swiperArr, setSwiperArr] = useState([
@@ -61,8 +63,9 @@ const Moreshop = (props) => {
   }, []);
   return (
     <>
-      <div className="moreshop">
-        <TopSearch />
+      <TopSearch who={'moreshop'}/>
+      {
+        store.getState().navstatus ?<Navigation />:<div className="moreshop">
         <Mybacktop />
         <Fixcustomer />
         <div className="wrapper">
@@ -110,6 +113,8 @@ const Moreshop = (props) => {
           
         </div>
       </div>
+      }
+      
     </>
   );
 };
