@@ -18,13 +18,14 @@ const Search = props =>{
     navigate('/')
     // setNavStatus(true)
     // PubSub.publish('navStatus',false)
-    changeNavstatus(false)
+    store.dispatch(changeNavstatus(false))
+    
   };
   const chtrolNav = ()=>{
     // setNavStatus(!navStatus)
     // PubSub.publish('navStatus',navStatus)
     console.log(store.getState().navstatus)
-    store.getState().navstatus?changeNavstatus(false):changeNavstatus(true)
+    store.getState().navstatus? store.dispatch(changeNavstatus(false)): store.dispatch(changeNavstatus(true))
     navigate(`/${who}`)
   }
   useEffect(()=>{

@@ -305,7 +305,7 @@ module.exports = ({ file }) => {
   
 ```
 
-#### 十二、HOOKS写法
+#### 十二、HOOKS写法redux
 ```js
 //useState：状态钩子
 //useEffect:副作用钩子
@@ -350,4 +350,20 @@ export function changeCount(payload){
         payload
     })
 }
+//actions可以是一个异步的，可以接受
+// 一个对象 ==>同步
+//一个函数 ==>异步
+npm install redux-thunk -S
+//使用redux-thunk的库作为redux的middleeware存在的，让dispatch可以是一个函数
+```
+
+#### 十三、react-redux库
+```
+npm install react-redux -S
+```
+```js
+UI组件
+//连接UI组件和store的关系
+容器组件
+//容器组件是UI组件的父组件
 ```
