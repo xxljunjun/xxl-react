@@ -43,6 +43,9 @@ const StudyRedux = (props) => {
   const jumpStudy = ()=>{
     navigate('/studyreactredux')
   }
+  const jumpRedux = ()=>{
+    navigate('/shareredux')
+  }
   useEffect(() => {
     return () => {
     }
@@ -72,6 +75,7 @@ const StudyRedux = (props) => {
       </div>
       <br></br>
       <button onClick={jumpStudy}>点我跳转学习redux</button>
+      <button onClick={jumpRedux}>点我跳转学习person--redux</button>
     </div>
   );
 };

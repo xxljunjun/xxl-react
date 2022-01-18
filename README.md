@@ -404,27 +404,21 @@ import {connect} from 'react-redux'
     2、返回的对象的可以就是传递给UI组件的props的key,value就作为传递给UI的props的value
     3、mapStateToProps用于传递状态
 */
-const mapStateToProps = (state)=>{
-    console.log('redux所管理的数据',state)
-    return {
-        count:state.count
-    }
-}
+const mapStateToProps = state=>({count:state.count}) 
 
 /*
     1、mapDispatchToProps函数返回一个对象
     2、mapDispatchToProps函数返回的对象中的key就作为UI组件中的props的key,value就作为传递给UI组件中props的value
     3、mapDispatchToProps函数用于传递操作状态的方法
 */
-const mapDispatchToProps = (dispatch)=>{
-    return {
-        jia:number=>dispatch(changeCount_jia(number)),
-        jian:number=>dispatch(changeCount_jian(number)),
-        cheng:number=>dispatch(changeCount_cheng(number)),
-        chu:number=>dispatch(changeCount_chu(number))
-        
-    }
-}
+const mapDispatchToProps = dispatch=>({
+    jia:number=>dispatch(changeCount_jia(number)),
+    jian:number=>dispatch(changeCount_jian(number)),
+    cheng:number=>dispatch(changeCount_cheng(number)),
+    chu:number=>dispatch(changeCount_chu(number)),
+    asyncjia:(number,time) => dispatch(changeCountAsync_jia(number,time))
+})
+
 
 //使用connect()()创建并暴露一个容器组件
 export default connect(mapStateToProps,mapDispatchToProps)(studyReactReduxUI)
@@ -441,6 +435,24 @@ export default connect(mapStateToProps,mapDispatchToProps)(studyReactReduxUI)
 ```js
 //直接通过props传递进去的操作方法进行操作store中的数据
 props.jia(Number(addNum))
+```
++ react-redux的优势
+```js
+/*
+  优化点
+    ==>1、react-redux自动监测store
+    ==>2、react-redux自动dispatch分发actions
+      mapDispatchToProps的简化写法
+    ==>3、在项目入口文件中Provider给所有组件传入store
+    ==>4、整合容器组件和UI组件
+    ==>5、一个组件要和redux打交道要经过几步
+      (1)定义好一个UI组件---不暴露
+      (2)引入connect生成一个容器组件并暴露，写法如下：
+        export default connect(state=>({key:value}),{
+            key:xxxxAction,
+        })(UI组件)
+      (3)在UI组件中通过this.props.xxxxx读取和操作状态
+*/
 ```
 /*
   react-redux总结

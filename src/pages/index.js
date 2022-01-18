@@ -15,7 +15,8 @@ const ResetPassword = loadable(() => import("@/pages/resetPassword/resetPassword
 const AddSucceed = loadable(() => import("@/pages/addSucceed/addSucceed.js"))
 const Register = loadable(() => import("@/pages/register/register.js"))
 const StudyRedux = loadable(() => import("@/pages/studyRedux/studyRedux.js"))
-const StudyReactRedux = loadable(() => import("@/containers/studyReactRedux_contain.js"))
+const StudyReactRedux = loadable(() => import("@/pages/studyReactRedux/studyReactRedux.js"))
+const ShareRedux = loadable(() => import("@/pages/shareRedux/shareRedux.js"))
 
 const routes = [
     {path:'/',component:<Home/>},
@@ -29,7 +30,8 @@ const routes = [
     {path:'/addSucceed',component:<AddSucceed/>},
     {path:'/register',component:<Register/>},
     {path:'/studyredux',component:<StudyRedux/>},
-    {path:'/studyreactredux',component:<StudyReactRedux store={store}/>},
+    {path:'/studyreactredux',component:<StudyReactRedux/>},
+    {path:'/shareredux',component:<ShareRedux/>},
 ]
  
 export default routes;

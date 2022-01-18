@@ -9,7 +9,7 @@ export function changeCount_jia(payload) {
 
 //异步的actions
 export function changeCountAsync_jia(payload,time) {
-    return (dispatch)=>{
+    return ()=>{
         setTimeout(()=>{
             store.dispatch(changeCount_jia(payload))
         },time)

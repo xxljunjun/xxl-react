@@ -1,8 +1,15 @@
+//引入UI组件
 import React,{useState,useEffect}from "react";
+import {connect} from 'react-redux'//引入connect用于连接UI组件与redux
+import {
+    changeCount_jia,
+    changeCount_jian,
+    changeCount_cheng,
+    changeCount_chu,
+    changeCountAsync_jia
+} from '@/actions/index.js'
 import './studyReactRedux.less'
-// import { Link,useNavigate} from "react-router-dom";
 import { Select } from "antd";
-
 const { Option } = Select;
 const StudyReactRedux = props=>{
   console.log('react-redux的props',props)
@@ -66,4 +73,14 @@ const StudyReactRedux = props=>{
       </div>
   </div>
 }
-export default StudyReactRedux
+//简化写法  ==>react-redux帮我们去dispatch分发actions
+export default connect(state=>({count:state.count}),{
+    jia:changeCount_jia,
+    jian:changeCount_jian,
+    cheng:changeCount_cheng,
+    chu:changeCount_chu,
+    asyncjia:changeCountAsync_jia
+})(StudyReactRedux)
+
+
+
