@@ -316,11 +316,6 @@ npm install --save redux
 npm install --save react-redux
 npm install --save-dev redux-devtools
 ```
-+ 在项目入口文件的index.js中
-```js
-import store from './store'
-<App store={store}/>
-```
 + 在store/index.js中
 ```js
 import { createStore } from 'redux'
@@ -330,40 +325,128 @@ export default createStore(rootReducer)
 + 在reducers/index.js
 ```js
 const initState = {
-    num:100,
-    myName:'廖军军',
-    myAge:22
-}
-const rootReducer = (state = initState,action) => {
-            return state
-}
-export default rootReducer
+  count: 0,
+};
+const rootReducer = (state = initState, action) => {
+  switch (action.type) {
+    case "JIA_COUNT":
+      return Object.assign({}, state, {
+        count: state.count + action.payload,
+      });
+    default:
+      return state;
+  }
+};
+export default rootReducer;
 ```
 + actions/index.js
 ```js
+
 //该文件统一控制actions中的dispatch分发
-import store from '@/store/index.js'
-//改变count
-export function changeCount(payload){
-    store.dispatch({
-        type:'CHANGE_COUNT',
+export function changeCount_jia(payload) {
+    return {
+        type: 'JIA_COUNT',
         payload
-    })
+    }
 }
-//actions可以是一个异步的，可以接受
-// 一个对象 ==>同步
-//一个函数 ==>异步
-npm install redux-thunk -S
-//使用redux-thunk的库作为redux的middleeware存在的，让dispatch可以是一个函数
+//异步的actions   npm install redux-thunk -S //dispatch可以接受一个函数~！！！
+export function changeCountAsync_jia(payload,time) {
+    return (dispatch)=>{
+        setTimeout(()=>{
+            store.dispatch(changeCount_jia(payload))
+        },time)
+    }
+    
+}
+//需要配置store/index.js
+import { createStore,applyMiddleware } from 'redux'
+import rootReducer from '../reducers'
+import thunk from 'redux-thunk'
+export default createStore(rootReducer,applyMiddleware(thunk))
 ```
++ 在react组件中使用
+```js
+import store from '@/store/index.js'
+ store.dispatch(changeCount_jia(Number(addNum)))
+```
++ 在项目中的入口文件中的index.js
+```js
+//监测redux中的状态改变，如redux的状态发生了改变，那么重新渲染App组件
+store.subscribe(()=>{
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+})
+```
+/*
+  原生redux总结
+    ==>actions可以是一个异步的，可以接受;一个对象(同步)一个函数(异步)
+    ==>npm install redux-thunk -S:使用redux-thunk的库作为redux的middleeware存在的，让dispatch可以是一个函数
+    ==>流程：组件中通过actions生成action==>dispatch提交actions交给store==>store通知reducer处理数据返回新数据
+    ==>reducer只是帮我们修改store中的数据，并不会监听数据的变化
+*/
 
 #### 十三、react-redux库
-```
-npm install react-redux -S
-```
++ 在容器组件studyReactRedux_contain.js中
 ```js
-UI组件
-//连接UI组件和store的关系
-容器组件
-//容器组件是UI组件的父组件
+//引入UI组件
+import studyReactReduxUI from '@/pages/studyReactRedux/studyReactRedux.js'
+import {changeCount_jia,changeCount_jian,changeCount_cheng,changeCount_chu} from '@/actions/index.js'
+
+//引入connect用于连接UI组件与redux
+import {connect} from 'react-redux'
+
+/*
+    1、mapStateToProps函数返回一个对象
+    2、返回的对象的可以就是传递给UI组件的props的key,value就作为传递给UI的props的value
+    3、mapStateToProps用于传递状态
+*/
+const mapStateToProps = (state)=>{
+    console.log('redux所管理的数据',state)
+    return {
+        count:state.count
+    }
+}
+
+/*
+    1、mapDispatchToProps函数返回一个对象
+    2、mapDispatchToProps函数返回的对象中的key就作为UI组件中的props的key,value就作为传递给UI组件中props的value
+    3、mapDispatchToProps函数用于传递操作状态的方法
+*/
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        jia:number=>dispatch(changeCount_jia(number)),
+        jian:number=>dispatch(changeCount_jian(number)),
+        cheng:number=>dispatch(changeCount_cheng(number)),
+        chu:number=>dispatch(changeCount_chu(number))
+        
+    }
+}
+
+//使用connect()()创建并暴露一个容器组件
+export default connect(mapStateToProps,mapDispatchToProps)(studyReactReduxUI)
+//简化写法
+// export default connect(mapStateToProps,{
+//     jia:changeCount_jia,
+//     jian:changeCount_jian,
+//     cheng:changeCount_cheng,
+//     chu:changeCount_chu,
+//     asyncjia:changeCountAsync_jia
+// })(studyReactReduxUI)
 ```
++ 在UI组件studyReactRedux.js中
+```js
+//直接通过props传递进去的操作方法进行操作store中的数据
+props.jia(Number(addNum))
+```
+/*
+  react-redux总结
+    ==>容器组件和UI组件是父子关系
+      import {connect} from 'react-redux'容器组件和UI组件建立联系
+      mapStateToProps、mapDispatchToProps容器组件和redux建立联系
+    ==>容器组件包含所有的操作store的方法、
+    ==>流程：mapStateToProps传递进去UI组件展示，mapDispatchToProps操作dispatch改变数据
+*/

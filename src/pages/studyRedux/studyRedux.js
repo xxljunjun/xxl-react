@@ -2,11 +2,13 @@ import React, { useState,useEffect} from "react";
 import { Select } from "antd";
 import "./studyRedux.less";
 import store from '@/store/index.js'
-import {changeCount_jia,changeCount_jian,changeCount_cheng,changeCount_chu} from '@/actions/index.js'//生成action对象
+import { Link,useNavigate} from "react-router-dom";
+import {changeCount_jia,changeCount_jian,changeCount_cheng,changeCount_chu,changeCountAsync_jia} from '@/actions/index.js'//生成action对象
 const { Option } = Select;
 const StudyRedux = (props) => {
   // console.log('学习redux的props',store.getState())
   const [addNum, setAddNum] = useState(1);
+  let navigate = useNavigate()
   const handleChange = (value) => {
     console.log(value);
     setAddNum(Number(value));
@@ -27,18 +29,22 @@ const StudyRedux = (props) => {
       case "/":
         store.dispatch(changeCount_chu(Number(addNum)))
         break;
+        case "$":
+        store.dispatch(changeCountAsync_jia(Number(addNum),1000))
+        //放在components中的异步操作
+        // setTimeout(()=>{
+        //   store.dispatch(changeCount_jia(Number(addNum)))
+        // },1000)
+        break;
       default:
         break;
     }
   };
+  const jumpStudy = ()=>{
+    navigate('/studyreactredux')
+  }
   useEffect(() => {
-    // 监听state的变化
-    let unsubscribe  = store.subscribe(() => {
-      console.log('监听中..',store.getState())
-    })
     return () => {
-      // 取消监听
-      unsubscribe();
     }
   },[])
   return (
@@ -50,6 +56,7 @@ const StudyRedux = (props) => {
         <div onClick={() => handle("-")}>-</div>
         <div onClick={() => handle("x")}>x</div>
         <div onClick={() => handle("/")}>/</div>
+        <button onClick={() => handle("$")}>异步加</button>
       </div>
       <div className="select_box">
         <Select
@@ -63,6 +70,8 @@ const StudyRedux = (props) => {
           <Option value="4">4</Option>
         </Select>
       </div>
+      <br></br>
+      <button onClick={jumpStudy}>点我跳转学习redux</button>
     </div>
   );
 };

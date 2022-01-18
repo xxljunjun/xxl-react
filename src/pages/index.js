@@ -1,6 +1,7 @@
 //代码分割（类似路由懒加载）
 import loadable from "@loadable/component";
 import React from "react";
+import store from '@/store/index.js'
 
 //引入组件（页面）
 const Home = loadable(() => import("@/pages/home/home.js"))
@@ -14,6 +15,7 @@ const ResetPassword = loadable(() => import("@/pages/resetPassword/resetPassword
 const AddSucceed = loadable(() => import("@/pages/addSucceed/addSucceed.js"))
 const Register = loadable(() => import("@/pages/register/register.js"))
 const StudyRedux = loadable(() => import("@/pages/studyRedux/studyRedux.js"))
+const StudyReactRedux = loadable(() => import("@/containers/studyReactRedux_contain.js"))
 
 const routes = [
     {path:'/',component:<Home/>},
@@ -27,6 +29,7 @@ const routes = [
     {path:'/addSucceed',component:<AddSucceed/>},
     {path:'/register',component:<Register/>},
     {path:'/studyredux',component:<StudyRedux/>},
+    {path:'/studyreactredux',component:<StudyReactRedux store={store}/>},
 ]
  
 export default routes;

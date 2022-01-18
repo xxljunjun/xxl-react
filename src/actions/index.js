@@ -1,4 +1,4 @@
-
+import store from '@/store/index.js'
 //改变count
 export function changeCount_jia(payload) {
     return {
@@ -6,6 +6,17 @@ export function changeCount_jia(payload) {
         payload
     }
 }
+
+//异步的actions
+export function changeCountAsync_jia(payload,time) {
+    return (dispatch)=>{
+        setTimeout(()=>{
+            store.dispatch(changeCount_jia(payload))
+        },time)
+    }
+    
+}
+
 export function changeCount_jian(payload) {
     return {
         type: 'JIAN_COUNT',
