@@ -1,7 +1,7 @@
 
 
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import Xxlvertify from "@/components/xxlvertify/xxlvertify.js";
 import "./eamilRegister.less";

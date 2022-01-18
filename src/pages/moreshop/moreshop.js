@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./moreshop.less";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import TopSearch from "@/components/search/search.js";
 import Fixcustomer from "@/components/fixcustomer/fixcustomer.js";
 import Mybacktop from "@/components/mybacktop/mybacktop.js";
@@ -9,9 +9,11 @@ import { swiper_1 } from "@/utils/img.js";
 import MoreshopBox from "@/components/moreshop_box/moreshop_box.js";
 import store from "@/store/index.js";
 import Navigation from "@/components/navigation/navigation.js";
+import {connect} from 'react-redux'
+
 const Moreshop = (props) => {
-  let navigate = useNavigate();
-  let [swiperArr, setSwiperArr] = useState([
+  // let navigate = useNavigate();
+  let [swiperArr] = useState([
     { id: 1, message: "御 Mavic", img_url: swiper_1 },
     { id: 1, message: "灵眸 Osmo", img_url: swiper_1 },
     { id: 1, message: "DJI FPV", img_url: swiper_1 },
@@ -22,7 +24,7 @@ const Moreshop = (props) => {
     { id: 1, message: "行业应用", img_url: swiper_1 },
     { id: 1, message: "睿炽科技丨特洛", img_url: swiper_1 },
   ]);
-  let [serveArr, setServeArr] = useState([
+  let [serveArr] = useState([
     {
       id: 1,
       message: "DJI Care 随心换 1 年版 (DJI Mavic 3)",
@@ -59,13 +61,15 @@ const Moreshop = (props) => {
       scrollX: true,
       scrollY: false,
     });
+    console.log(bs)
+    console.log(bs2)
     return () => {};
   }, []);
   return (
     <>
-      <TopSearch who={'moreshop'}/>
+      <TopSearch/>
       {
-        store.getState().navstatus ?<Navigation />:<div className="moreshop">
+        props.navstatus ?<Navigation />:<div className="moreshop">
         <Mybacktop />
         <Fixcustomer />
         <div className="wrapper">
@@ -118,4 +122,6 @@ const Moreshop = (props) => {
     </>
   );
 };
-export default Moreshop;
+export default connect(state=>({navstatus:state.navstatus}),{
+ 
+})(Moreshop)

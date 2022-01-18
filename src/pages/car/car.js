@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import TopSearch from "@/components/search/search.js";
 import TipsDialog from "@/components/tipsDialog/tipsDialog.js";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import "./car.less";
 import Mybottom from "@/components/mybottom/mybottom.js";
-import { Modal, Checkbox } from "antd";
+import {Checkbox } from "antd";
 import Myloading from "@/components/loading/loading.js";
 import { swiper_1 } from "@/utils/img.js";
 import store from "@/store/index.js";
@@ -15,7 +15,7 @@ import Navigation from "@/components/navigation/navigation.js";
 const Car = (props) => {
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [shopArr, setShopArr] = useState([
+  const [shopArr] = useState([
     { id: 1, name: "小溪流" },
     { id: 2, name: "君君" },
   ]);

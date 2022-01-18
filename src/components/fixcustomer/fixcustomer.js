@@ -1,12 +1,12 @@
 
 import React,{useState,useEffect}from "react";
 import "./fixcustomer.less";
-import { Link,useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 import {  Drawer } from "antd";
 import { earphone } from "@/utils/img.js";
 import { CommentOutlined,MailOutlined,PhoneOutlined,WechatOutlined} from '@ant-design/icons'
 const Fixcustomer = props=>{
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
   let [drawervisible, setDrawervisible] = useState(false);
   const onCloseDrawer = () => {
     setDrawervisible(false);

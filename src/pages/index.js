@@ -1,7 +1,6 @@
 //代码分割（类似路由懒加载）
 import loadable from "@loadable/component";
 import React from "react";
-import store from '@/store/index.js'
 
 //引入组件（页面）
 const Home = loadable(() => import("@/pages/home/home.js"))

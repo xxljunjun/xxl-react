@@ -1,10 +1,10 @@
 
-import React,{useState,useEffect}from "react";
-import { Link,useNavigate} from "react-router-dom";
+import React,{useEffect}from "react";
+// import {useNavigate} from "react-router-dom";
 import './loading.less'
 import { loading} from "@/utils/img.js";
 const Myloading = props=>{
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
   useEffect(()=>{
 
     return ()=>{

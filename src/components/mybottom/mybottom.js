@@ -1,7 +1,7 @@
 import React from "react";
 import "./mybottom.less";
 import { Collapse } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 const { Panel } = Collapse;
 
 const Mybottom = (props) => {

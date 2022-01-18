@@ -1,8 +1,8 @@
 
 import "./commodity.less";
 import { img_1, img_2, img_3,banner } from "@/utils/img.js";
-import React,{useState,useEffect}from "react";
-import { Link,useNavigate} from "react-router-dom";
+import React,{useEffect}from "react";
+import {useNavigate} from "react-router-dom";
 const Commodity = props=>{
   let navigate = useNavigate()
   useEffect(()=>{

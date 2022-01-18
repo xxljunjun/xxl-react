@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./shopdetail.less";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import TopSearch from "@/components/search/search.js";
 import ShopSwiper from "@/components/shopSwiper/shopSwiper.js";
 import Mybottom from "@/components/mybottom/mybottom.js";
@@ -8,24 +8,23 @@ import Fixcustomer from "@/components/fixcustomer/fixcustomer.js";
 import Mybacktop from "@/components/mybacktop/mybacktop.js";
 import Location from "@/components/location/location.js";
 import AddShop from "@/components/addShop/addShop.js";
-import store from "@/store/index.js";
 import Navigation from "@/components/navigation/navigation.js";
-
+import {connect} from 'react-redux'
 import { Drawer } from "antd";
+
 const Shopdetail = (props) => {
-  let navigate = useNavigate();
-  let [navstatus, setNavstatus] = useState(store.getState().navstatus); //控制nav状态
+  // let navigate = useNavigate();
   let [locationStatus, setLocationStatus] = useState(false);
   let [bottomStatus, setBottomStatus] = useState(false);
   let [drawervisible, setDrawervisible] = useState(false);
-  let [listArr, setListArr] = useState([
+  let [listArr] = useState([
     { id: 1, message: "4/3 CMOS 哈苏相机" },
     { id: 2, message: "46 分钟飞行时间" },
     { id: 3, message: "全向避障" },
     { id: 4, message: "15 公里高清图传" },
     { id: 5, message: "高级智能返航" },
   ]);
-  let [messageArr, setMessageArr] = useState([
+  let [messageArr] = useState([
     {
       id: 1,
       message: "DJI Mavic 3",
@@ -79,8 +78,8 @@ const Shopdetail = (props) => {
   }, []);
   return (
     <div className="shopdetail">
-       <TopSearch who={'shopdetail'}/>
-      {store.getState().navstatus ? (
+       <TopSearch/>
+      {props.navstatus ? (
         <Navigation />
       ) : (
         <>
@@ -180,4 +179,6 @@ const Shopdetail = (props) => {
     </div>
   );
 };
-export default Shopdetail;
+
+export default connect(state=>({navstatus:state.navstatus}),{
+})(Shopdetail)

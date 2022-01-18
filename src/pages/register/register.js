@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useEffect } from "react";
+// import { Link, useNavigate } from "react-router-dom";
 import PhoneRegister from "@/components/phoneRegister/phoneRegister.js";
 import EamilRegister from "@/components/eamilRegister/eamilRegister.js";
 import { Tabs } from "antd";
 import './register.less'
 const { TabPane } = Tabs;
 const Register = (props) => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const callback = (key) => {
     console.log(key);
   };

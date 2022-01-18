@@ -5,36 +5,24 @@ import { Link,useNavigate} from "react-router-dom";
 import {Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import PubSub from 'pubsub-js'
-import store from "@/store/index.js";
 import {changeNavstatus} from '@/actions/index.js'
+import {connect} from 'react-redux'
 
 
 const Search = props =>{
-  let {who} = props
+  let {navstatus,changNav} = props
   let navigate = useNavigate()
   let [num,setNum]= useState(2)
   const gotoreflesh = () => {
-    // console.log("刷新页面",navigate);
     navigate('/')
-    // setNavStatus(true)
-    // PubSub.publish('navStatus',false)
-    store.dispatch(changeNavstatus(false))
-    
+    changNav(false)
   };
   const chtrolNav = ()=>{
-    // setNavStatus(!navStatus)
-    // PubSub.publish('navStatus',navStatus)
-    console.log(store.getState().navstatus)
-    store.getState().navstatus? store.dispatch(changeNavstatus(false)): store.dispatch(changeNavstatus(true))
-    navigate(`/${who}`)
+    navstatus?changNav(false):changNav(true)
   }
   useEffect(()=>{
     PubSub.subscribe('numstatus',(msg,data) => {
-      console.log('11111111111',msg)
-      console.log('2222222',data)
-      // if(data){
         setNum(3)
-      // }
     })
     return ()=>{
       PubSub.unsubscribe('numstatus');
@@ -45,7 +33,7 @@ const Search = props =>{
       <div className="topsearch">
         <div className="left" onClick={chtrolNav}>
           {
-            !store.getState().navstatus?<img src={gang} alt="" className="left_img" />:'关闭'
+            !navstatus?<img src={gang} alt="" className="left_img" />:'关闭'
           }
           
         </div>
@@ -58,7 +46,7 @@ const Search = props =>{
           />
         </div>
        {
-         !store.getState().navstatus &&  <div className="right">
+         !navstatus &&  <div className="right">
           <Link to="/search">
             <img src={search} alt="" className="right_img_1" />
           </Link>
@@ -73,4 +61,7 @@ const Search = props =>{
     </>
   )
 }
-export default Search;
+
+export default connect(state=>({navstatus:state.navstatus}),{
+  changNav:changeNavstatus
+})(Search)

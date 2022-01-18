@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import "./xxlvertify.less";
 const Xxlvertify = (props) => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   let [num, setNum] = useState(0);
   let [x,setX] = useState(0)
   useEffect(() => {

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import TopBar from "@/components/topBar/topBar.js";
 import TipsDialog from "@/components/tipsDialog/tipsDialog.js";
 import "./writeShop.less";
 const WriteShop = (props) => {
   let navigate = useNavigate();
   let [dialogStatus,setDialogStatus] = useState(false)
-  let [num, setNum] = useState(8);
+  let [num] = useState(8);
   let [otherarr, setOtherarr] = useState([
     { id: 1, check: false, txt: "遥控不正常" },
     { id: 2, check: false, txt: "影像功能不正常" },
@@ -105,7 +105,7 @@ const WriteShop = (props) => {
     },
   ]);
   let [step, setStep] = useState(0);
-  let [shop, setShop] = useState("iDol智能飞行器");
+  let [shop] = useState("iDol智能飞行器");
   /**
    * 点击选项
   */

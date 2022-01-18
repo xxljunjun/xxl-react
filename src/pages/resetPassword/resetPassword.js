@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import Xxlvertify from "@/components/xxlvertify/xxlvertify.js";
 import { Button,Input } from "antd";
 import "./resetPassword.less";
 const ResetPassword = (props) => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   let [orign, setOrign] = useState(true);
   let [keyword,setKeyword] = useState("");
   let [title,setTitle] = useState('重置密码')

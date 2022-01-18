@@ -1,6 +1,6 @@
 import React ,{useState}from "react";
 import "./login.less";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import PhoneRegister from "@/components/phoneRegister/phoneRegister.js";
 // const XxxContext = React.createContext()

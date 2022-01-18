@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import "./navigation.less";
 const Navigation = (props) => {
   let navigate = useNavigate();
-  let [allArr, setAllArr] = useState([
+  let [allArr] = useState([
     { id: 1, title: "登录", list: [
       { id: 1, xxl: "登录" },
     ] },

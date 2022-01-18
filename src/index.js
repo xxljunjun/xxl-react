@@ -22,13 +22,13 @@ ReactDOM.render(
 // reportWebVitals();
 
 // 监测redux中的状态改变，如redux的状态发生了改变，那么重新渲染App组件
-store.subscribe(()=>{
-  ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
-})
+// store.subscribe(()=>{
+//   ReactDOM.render(
+//     <React.StrictMode>
+//       <Provider store={store}>
+//         <App />
+//       </Provider>
+//     </React.StrictMode>,
+//     document.getElementById("root")
+//   );
+// })

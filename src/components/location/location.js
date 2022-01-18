@@ -1,12 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { 
+  useState, 
+  useEffect, 
+  // useRef 
+} from "react";
+// import { Link, useNavigate } from "react-router-dom";
 import "./location.less";
 import { Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 const Location = (props) => {
   let { closeLocation } = props;
-  let navigate = useNavigate();
-  let [zimuArr, setZimuArr] = useState([
+  // let navigate = useNavigate();
+  let [zimuArr] = useState([
     {
       id: 1,
       letter: "A",

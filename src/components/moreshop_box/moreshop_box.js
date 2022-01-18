@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useEffect } from "react";
+// import {useNavigate } from "react-router-dom";
 import "./moreshop_box.less";
 const Moreshop_box = (props) => {
   let {obj} = props
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   useEffect(() => {
     return () => {};
   }, []);
