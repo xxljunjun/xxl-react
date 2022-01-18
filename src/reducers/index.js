@@ -21,7 +21,6 @@ const rootReducer = (state = initState, action) => {
         count: state.count / action.payload,
       });
     case "CHANGE_NAVSTATUS":
-      console.log('触发了redux', action)
       return Object.assign({}, state, {
         navstatus: action.payload,
       });

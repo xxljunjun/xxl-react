@@ -62,6 +62,6 @@ const Search = props =>{
   )
 }
 
-export default connect(state=>({navstatus:state.navstatus}),{
+export default connect(state=>({navstatus:state.he.navstatus}),{
   changNav:changeNavstatus
 })(Search)

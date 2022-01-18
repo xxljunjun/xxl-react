@@ -40,5 +40,5 @@ const Home = (props) => {
   );
 };
 
-export default connect(state=>({navstatus:state.navstatus}),{
+export default connect(state=>({navstatus:state.he.navstatus}),{
 })(Home)

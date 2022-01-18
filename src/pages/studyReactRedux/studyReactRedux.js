@@ -71,10 +71,17 @@ const StudyReactRedux = props=>{
           <Option value="4">4</Option>
         </Select>
       </div>
+      <div className="listBox">
+      {
+        props.personArr.map(item=>{
+          return <li key={item.id}>{`我是${item.myname}，今年${item.age}岁了`}</li>
+        })
+      }
+    </div>
   </div>
 }
 //简化写法  ==>react-redux帮我们去dispatch分发actions
-export default connect(state=>({count:state.count}),{
+export default connect(state=>({count:state.he.count,personArr:state.she.personArr}),{
     jia:changeCount_jia,
     jian:changeCount_jian,
     cheng:changeCount_cheng,

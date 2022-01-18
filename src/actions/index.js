@@ -43,3 +43,11 @@ export function changeNavstatus(payload) {
         payload
     }
 }
+
+//改变person数组里的成员
+export function changePerson(payload) {
+    return {
+        type: 'CHANGE_PERSON',
+        payload
+    }
+}
