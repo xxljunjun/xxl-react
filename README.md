@@ -462,3 +462,18 @@ props.jia(Number(addNum))
     ==>容器组件包含所有的操作store的方法、
     ==>流程：mapStateToProps传递进去UI组件展示，mapDispatchToProps操作dispatch改变数据
 */
+
+#### 十四、配置axios请求
++ 解决跨域在config/webpackDevServer.config.js的104行
+```js
+proxy: {
+  '/he': {
+    target: 'https://way.jd.com',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/api': ''
+    }
+  }
+},
+```
+

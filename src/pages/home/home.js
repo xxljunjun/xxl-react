@@ -9,6 +9,7 @@ import Mybacktop from "@/components/mybacktop/mybacktop.js";
 import Navigation from "@/components/navigation/navigation.js";
 import "./home.less";
 import {connect} from 'react-redux'
+import {getWeather} from '@/utils/axios/api.js'
 // import { Link, useNavigate } from "react-router-dom";
 const Home = (props) => {
   // let navigate = useNavigate();
@@ -19,7 +20,16 @@ const Home = (props) => {
   //   { id: 4, some: "探索精彩大疆" },
   // ]);
   useEffect(() => {
-  
+    //测试axios请求
+    let params = {
+      city:'深圳',
+      appkey:'7a85fc9df58cd155f764e033a257d879'
+    }
+    getWeather(params).then(res=>{
+      console.log('请求成功',res)
+    },err=>{
+      console.log('请求失败',err)
+    })
     return () => {};
   }, []);
   return (
