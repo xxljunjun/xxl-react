@@ -26,6 +26,15 @@ npm install
 | mock | 是 | `模拟http请求` | http://mockjs.com/ |
 | classNames | 是 | `类名的判断使用` ||
 
+### 插件redux-devtools需要配合redux-devtools-extension使用  redux开发者工具  Redux DevTools
++ 在store/index.js文件夹下
+```js
+// 引入redux-devtools-extension
+ import { composeWithDevTools} from 'redux-devtools-extension'
+ //配合redux-devtools插件使用
+export default createStore(allReducer,composeWithDevTools(applyMiddleware(thunk)))
+```
+### react DevTools
 
 
 

@@ -10,6 +10,7 @@ console.log('入口文件的redux',store)
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* 此处需要用provider包裹App,目的是让App所有的后代容器组件都能接收到store */}
     <Provider store={store}>
       <App />
     </Provider>
