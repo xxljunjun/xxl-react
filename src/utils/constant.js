@@ -5,3 +5,5 @@ export const CHENG_COUNT = "cheng_count"
 export const CHU_COUNT = "chu_count"
 export const CHANGE_NAVSTATUS = "chang_navstatus"
 export const CHANGE_PERSON = "change_person"
+
+export const UPDATE_SHOPNUMS = "update_shopnums"

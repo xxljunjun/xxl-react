@@ -7,15 +7,17 @@ import Mybottom from "@/components/mybottom/mybottom.js";
 import {Checkbox } from "antd";
 import Myloading from "@/components/loading/loading.js";
 import { swiper_1 } from "@/utils/img.js";
-import store from "@/store/index.js";
 import Navigation from "@/components/navigation/navigation.js";
+import {updateShopnums} from '@/actions/index.js'
+import {connect} from 'react-redux'
 
 // import { useNavigate} from "react-router-dom";
 
 const Car = (props) => {
+  let {changNum,navstatus} = props
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [shopArr] = useState([
+  const [shopArr,setShopArr] = useState([
     { id: 1, name: "小溪流" },
     { id: 2, name: "君君" },
   ]);
@@ -40,6 +42,20 @@ const Car = (props) => {
   const closetipsDialog = () => {
     setVisible(false);
   };
+  /**
+   * 移除商品
+   */
+  const removeShop = (id)=>{
+    console.log('要删除的商品',id)
+    let newShopArr = shopArr.filter(val=>{
+      return val.id !==id
+    })
+    console.log('要删除的商品',newShopArr)
+    setShopArr(newShopArr)
+
+    //更新商品数量
+    changNum(newShopArr.length)
+  }
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -49,7 +65,7 @@ const Car = (props) => {
   return (
     <>
        <TopSearch who={'car'}/>
-      {store.getState().navstatus ? (
+      {navstatus ? (
         <Navigation />
       ) : (
         <>
@@ -97,7 +113,7 @@ const Car = (props) => {
                       <p>Osmo Pocket 磁吸 ND 减光镜套件</p>
                       <p>¥299</p>
                       <div className="updown">
-                        <span className="remove">移除</span>
+                        <span className="remove" onClick={()=>removeShop(val.id)}>移除</span>
                         <div className="jishu">
                           <span className="reduce">-</span>
                           <span className="num">2</span>
@@ -143,4 +159,7 @@ const Car = (props) => {
     </>
   );
 };
-export default Car;
+
+export default connect(state=>({shopNums:state.shop.shopNums,navstatus:state.he.navstatus}),{
+  changNum:updateShopnums
+})(Car)

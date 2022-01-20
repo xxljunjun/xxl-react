@@ -1,33 +1,33 @@
-import React,{useState,useEffect} from "react";
+import React,{useEffect} from "react";
 import "./search.less";
 import { dajiang, search, shopimg, gang } from "@/utils/img.js";
 import { Link,useNavigate} from "react-router-dom";
 import {Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import PubSub from 'pubsub-js'
-import {changeNavstatus} from '@/actions/index.js'
+// import PubSub from 'pubsub-js'
+import {changeNavstatus,updateShopnums} from '@/actions/index.js'
 import {connect} from 'react-redux'
 
 
 const Search = props =>{
-  let {navstatus,changNav} = props
+  let {navstatus,changNav,shopNums} = props
   let navigate = useNavigate()
-  let [num,setNum]= useState(2)
   const gotoreflesh = () => {
     navigate('/')
     changNav(false)
   };
   const chtrolNav = ()=>{
     navstatus?changNav(false):changNav(true)
+    // changNum(++shopNums)
   }
   useEffect(()=>{
-    PubSub.subscribe('numstatus',(msg,data) => {
-        setNum(3)
-    })
+    // PubSub.subscribe('numstatus',(msg,data) => {
+    //     setNum(3)
+    // })
     return ()=>{
-      PubSub.unsubscribe('numstatus');
+      // PubSub.unsubscribe('numstatus');
     }
-  },[num])
+  },[])
   return (
     <>
       <div className="topsearch">
@@ -51,7 +51,7 @@ const Search = props =>{
             <img src={search} alt="" className="right_img_1" />
           </Link>
           <Link to="/car">
-            <Badge count={num}>
+            <Badge count={shopNums}>
               <img src={shopimg} alt="" className="right_img_2" icon={<UserOutlined />} />
             </Badge>
           </Link>
@@ -62,6 +62,7 @@ const Search = props =>{
   )
 }
 
-export default connect(state=>({navstatus:state.he.navstatus}),{
-  changNav:changeNavstatus
+export default connect(state=>({navstatus:state.he.navstatus,shopNums:state.shop.shopNums}),{
+  changNav:changeNavstatus,
+  changNum:updateShopnums
 })(Search)

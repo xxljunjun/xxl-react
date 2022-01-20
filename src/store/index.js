@@ -4,6 +4,7 @@ import { createStore,applyMiddleware,combineReducers} from 'redux'
 //引入不同的reducer
 import rootReducer from '../reducers'
 import person from '../reducers/person.js' 
+import shop from '../reducers/shop.js'
 
 //使得actions可以是一个函数,用于支持异步的actions
 import thunk from 'redux-thunk'
@@ -14,7 +15,8 @@ import thunk from 'redux-thunk'
 //汇总所有的reducer变成一个总的reducer
 const allReducer = combineReducers({
     he:rootReducer,
-    she:person
+    she:person,
+    shop
 })
 
 //暴露store

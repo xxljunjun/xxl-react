@@ -5,7 +5,8 @@ import {
     CHENG_COUNT,
     CHU_COUNT,
     CHANGE_NAVSTATUS,
-    CHANGE_PERSON
+    CHANGE_PERSON,
+    UPDATE_SHOPNUMS
   } from '@/utils/constant.js'
 //改变count
 export function changeCount_jia(payload) {
@@ -56,6 +57,13 @@ export function changeNavstatus(payload) {
 export function changePerson(payload) {
     return {
         type: CHANGE_PERSON,
+        payload
+    }
+}
+
+export function updateShopnums(payload) {
+    return {
+        type: UPDATE_SHOPNUMS,
         payload
     }
 }
