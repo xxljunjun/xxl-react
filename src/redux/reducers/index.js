@@ -4,7 +4,7 @@ import {
   CHENG_COUNT,
   CHU_COUNT,
   CHANGE_NAVSTATUS
-} from '@/utils/constant.js'
+} from '@/redux/constant.js'
 const initState = {
   navstatus: false,
   count: 0,

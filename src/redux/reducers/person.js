@@ -1,4 +1,4 @@
-import {CHANGE_PERSON} from '@/utils/constant.js'
+import {CHANGE_PERSON} from '@/redux/constant.js'
 const initState = {
   personArr: [],
 };

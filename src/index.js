@@ -4,7 +4,7 @@ import "./index.css";
 import "antd/dist/antd.css";
 import App from "./App";
 // import reportWebVitals from "./reportWebVitals";
-import store from '@/store/index.js'
+import store from '@/redux/store/index.js'
 import {Provider} from 'react-redux'
 console.log('入口文件的redux',store)
 

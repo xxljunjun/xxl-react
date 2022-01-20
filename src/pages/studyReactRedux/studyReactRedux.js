@@ -7,7 +7,7 @@ import {
     changeCount_cheng,
     changeCount_chu,
     changeCountAsync_jia
-} from '@/actions/index.js'
+} from '@/redux/actions/index.js'
 import './studyReactRedux.less'
 import { Select } from "antd";
 const { Option } = Select;

@@ -5,7 +5,7 @@ import { Link,useNavigate} from "react-router-dom";
 import {Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 // import PubSub from 'pubsub-js'
-import {changeNavstatus,updateShopnums} from '@/actions/index.js'
+import {changeNavstatus,updateShopnums} from '@/redux/actions/index.js'
 import {connect} from 'react-redux'
 
 

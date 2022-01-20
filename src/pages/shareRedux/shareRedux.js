@@ -1,6 +1,6 @@
 import React,{useState,useRef} from "react";
 import {connect} from 'react-redux'
-import {changePerson} from '@/actions/index.js'
+import {changePerson} from '@/redux/actions/index.js'
 import './shareRedux.less'
 const ShareRedux = (props) => {
   let {personArr} = props

@@ -1,9 +1,9 @@
 import React, { useState,useEffect} from "react";
 import { Select } from "antd";
 import "./studyRedux.less";
-import store from '@/store/index.js'
+import store from '@/redux/store/index.js'
 import {useNavigate} from "react-router-dom";
-import {changeCount_jia,changeCount_jian,changeCount_cheng,changeCount_chu,changeCountAsync_jia} from '@/actions/index.js'//生成action对象
+import {changeCount_jia,changeCount_jian,changeCount_cheng,changeCount_chu,changeCountAsync_jia} from '@/redux/actions/index.js'//生成action对象
 const { Option } = Select;
 const StudyRedux = (props) => {
   // console.log('学习redux的props',store.getState())

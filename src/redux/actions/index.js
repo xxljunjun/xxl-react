@@ -1,4 +1,4 @@
-import store from '@/store/index.js'
+import store from '@/redux/store/index.js'
 import {
     JIA_COUNT,
     JIAN_COUNT,
@@ -7,7 +7,7 @@ import {
     CHANGE_NAVSTATUS,
     CHANGE_PERSON,
     UPDATE_SHOPNUMS
-  } from '@/utils/constant.js'
+  } from '@/redux/constant.js'
 //改变count
 export function changeCount_jia(payload) {
     return {

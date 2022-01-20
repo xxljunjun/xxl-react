@@ -1,4 +1,4 @@
-import {UPDATE_SHOPNUMS} from '@/utils/constant.js'
+import {UPDATE_SHOPNUMS} from '@/redux/constant.js'
 const initState = {
   shopNums: 2,
 };
