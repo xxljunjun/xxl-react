@@ -8,6 +8,7 @@ import {
     CHANGE_PERSON,
     UPDATE_SHOPNUMS
   } from '@/redux/constant.js'
+  
 //改变count
 export function changeCount_jia(payload) {
     return {
