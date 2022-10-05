@@ -2,7 +2,7 @@
   "name": "xxl-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": ".",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@babel/core": "7.12.3",

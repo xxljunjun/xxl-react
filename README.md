@@ -194,6 +194,27 @@ proxy: {
 },
 ```
 
+### 发布到linux服务器上
++ 修改package.json
+```js
+"homepage": ".",
+```
++ 在index.html
+```html
+<base href="/dajiang/">
+```
++ 踩坑：需要重启服务器！！！
++ linux命令
+```
+cd 
+vim nginx.conf
+wq
+nginx -s reload
+ll
+ls
+```
+
+
 
 
 
