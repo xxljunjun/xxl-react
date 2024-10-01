@@ -5,7 +5,8 @@ import { Link,useNavigate} from "react-router-dom";
 import {Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 // import PubSub from 'pubsub-js'
-import {changeNavstatus,updateShopnums} from '@/redux/actions/index.js'
+import {changeNavstatus} from '@/redux/actions/navBar_action.js'
+import {updateShopnums} from '@/redux/actions/shop_action.js'
 import {connect} from 'react-redux'
 
 
@@ -62,7 +63,7 @@ const Search = props =>{
   )
 }
 
-export default connect(state=>({navstatus:state.he.navstatus,shopNums:state.shop.shopNums}),{
+export default connect(state=>({navstatus:state.navBar_reducer.navstatus,shopNums:state.shop_reducer.shopNums}),{
   changNav:changeNavstatus,
   changNum:updateShopnums
 })(Search)

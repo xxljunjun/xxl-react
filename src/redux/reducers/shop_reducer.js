@@ -3,7 +3,7 @@ const initState = {
   shopNums: 2,
 };
 //reducer是一个纯函数
-const shop = (state = initState, action) => {
+const shopReducer = (state = initState, action) => {
   switch (action.type) {
     case UPDATE_SHOPNUMS:
       return Object.assign({}, state, {
@@ -13,4 +13,4 @@ const shop = (state = initState, action) => {
       return state;
   }
 };
-export default shop;
+export default shopReducer;

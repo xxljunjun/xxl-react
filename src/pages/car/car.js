@@ -8,7 +8,7 @@ import {Checkbox } from "antd";
 import Myloading from "@/components/loading/loading.js";
 import { swiper_1 } from "@/utils/img.js";
 import Navigation from "@/components/navigation/navigation.js";
-import {updateShopnums} from '@/redux/actions/index.js'
+import {updateShopnums} from '@/redux/actions/shop_action.js'
 import {connect} from 'react-redux'
 
 // import { useNavigate} from "react-router-dom";

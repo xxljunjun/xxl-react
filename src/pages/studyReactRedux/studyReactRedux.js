@@ -7,7 +7,7 @@ import {
     changeCount_cheng,
     changeCount_chu,
     changeCountAsync_jia
-} from '@/redux/actions/index.js'
+} from '@/redux/actions/count_action.js'
 import './studyReactRedux.less'
 import { Select } from "antd";
 const { Option } = Select;
@@ -71,23 +71,20 @@ const StudyReactRedux = props=>{
           <Option value="4">4</Option>
         </Select>
       </div>
-      <div className="listBox">
-      {
-        props.personArr.map(item=>{
-          return <li key={item.id}>{`我是${item.myname}，今年${item.age}岁了`}</li>
-        })
-      }
-    </div>
   </div>
 }
 //简化写法  ==>react-redux帮我们去dispatch分发actions
-export default connect(state=>({count:state.he.count,personArr:state.she.personArr}),{
+//a函数返回的对象中的key就作为传递给UI组件的key,value作为传递给UI组件的value
+export default connect(state=>{
+  return  {count:state.count_reducer.count}
+},{
     jia:changeCount_jia,
     jian:changeCount_jian,
     cheng:changeCount_cheng,
     chu:changeCount_chu,
     asyncjia:changeCountAsync_jia
-})(StudyReactRedux)
+}
+)(StudyReactRedux)
 
 
 
