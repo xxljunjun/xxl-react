@@ -75,15 +75,24 @@ const StudyReactRedux = props=>{
 }
 //简化写法  ==>react-redux帮我们去dispatch分发actions
 //a函数返回的对象中的key就作为传递给UI组件的key,value作为传递给UI组件的value
-export default connect(state=>{
-  return  {count:state.count_reducer.count}
-},{
+export default connect(
+  state=>({count:state.count_reducer.count}),
+  //第一种写法
+  // dispatch=>({
+  //   jia: num=>dispatch(changeCount_jia(num)),
+  //   jian: num=>dispatch(changeCount_jian(num)),
+  //   cheng: num=>dispatch(changeCount_cheng(num)),
+  //   chu: num=>dispatch(changeCount_chu(num)),
+  //   asyncjia: num=>dispatch(changeCountAsync_jia(num)),
+  // })
+  //第二种写法
+  {
     jia:changeCount_jia,
     jian:changeCount_jian,
     cheng:changeCount_cheng,
     chu:changeCount_chu,
     asyncjia:changeCountAsync_jia
-}
+  }
 )(StudyReactRedux)
 
 

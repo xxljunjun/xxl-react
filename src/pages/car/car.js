@@ -160,6 +160,6 @@ const Car = (props) => {
   );
 };
 
-export default connect(state=>({shopNums:state.shop.shopNums,navstatus:state.he.navstatus}),{
+export default connect(state=>({shopNums:state.shop_reducer.shopNums,navstatus:state.navBar_reducer.navstatus}),{
   changNum:updateShopnums
 })(Car)

@@ -121,6 +121,6 @@ const Moreshop = (props) => {
     </>
   );
 };
-export default connect(state=>({navstatus:state.he.navstatus}),{
+export default connect(state=>({navstatus:state.navBar_reducer.navstatus}),{
  
 })(Moreshop)
